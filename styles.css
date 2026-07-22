@@ -3508,14 +3508,101 @@ summary > span {
   display: none;
 }
 
-.course-note > details[open] > summary span,
+.course-note > details[open] > summary .coursework-library__icon,
 .travel-plan-b[open] summary span {
   transform: rotate(45deg);
 }
 
-.course-note > details > summary span,
+.course-note > details > summary .coursework-library__icon,
 .travel-plan-b summary span {
   transition: transform 180ms ease;
+}
+
+.course-note > .coursework-library {
+  border-top: 0;
+}
+
+.course-note > .coursework-library > .coursework-library__toggle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1rem, 3vw, 2.4rem);
+  align-items: center;
+  padding: clamp(1rem, 2.2vw, 1.4rem) clamp(1rem, 2.5vw, 1.6rem);
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.2);
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.course-note > .coursework-library > .coursework-library__toggle:hover,
+.course-note > .coursework-library > .coursework-library__toggle:focus-visible,
+.course-note > .coursework-library[open] > .coursework-library__toggle {
+  border-color: var(--wine);
+  background: rgba(116, 74, 80, 0.08);
+}
+
+.coursework-library__copy {
+  display: grid;
+  gap: 0.18rem;
+  min-width: 0;
+}
+
+.coursework-library__eyebrow {
+  color: var(--wine);
+  font-size: 0.56rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+.coursework-library__copy strong {
+  font-family: var(--display);
+  font-size: clamp(1.22rem, 2vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.coursework-library__copy small {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.coursework-library__action {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  color: var(--wine);
+  white-space: nowrap;
+}
+
+.coursework-library__action-text {
+  font-size: 0.67rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}
+
+.coursework-library__action-text--open {
+  display: none;
+}
+
+.coursework-library[open] .coursework-library__action-text--closed {
+  display: none;
+}
+
+.coursework-library[open] .coursework-library__action-text--open {
+  display: inline;
+}
+
+.coursework-library__icon {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 1rem;
 }
 
 .course-note ul {
@@ -4633,6 +4720,17 @@ body {
 }
 
 @media (max-width: 620px) {
+  .course-note > .coursework-library > .coursework-library__toggle {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .coursework-library__action {
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--line);
+  }
+
   .course-note .coursework-item > summary {
     grid-template-columns: 1.7rem minmax(0, 1fr) auto;
     gap: 0.65rem;
@@ -4753,5 +4851,179 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .publication-note__links a {
     transition: none;
+  }
+}
+
+/* V7: lighter media and collision-free small-screen composition */
+
+img {
+  background: rgba(36, 36, 31, 0.045);
+}
+
+figure,
+figcaption,
+.feature__header,
+.feature__body,
+.section-header,
+.contact__details {
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  :root {
+    --section: clamp(4.75rem, 16vw, 7rem);
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .opening {
+    display: block;
+    min-height: 0;
+    overflow: visible;
+    padding-top: 1.25rem;
+    padding-bottom: 3rem;
+  }
+
+  .opening__statement {
+    padding: clamp(3.5rem, 15vw, 5.5rem) 0 2.5rem;
+  }
+
+  .opening h1 {
+    max-width: 100%;
+    margin: 0;
+    font-size: clamp(2.85rem, 13.6vw, 4.35rem);
+    line-height: 0.94;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+
+  .opening__statement .opening__note {
+    width: 100%;
+    margin-top: 2.5rem;
+  }
+
+  .opening__portrait {
+    width: min(82vw, 25rem);
+    margin: 0 0 2.5rem auto;
+  }
+
+  .opening__portrait img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .opening__audience {
+    width: 100%;
+    margin: 0;
+    padding-bottom: 0;
+  }
+
+  .opening__folio {
+    display: none;
+  }
+
+  .section-header h2,
+  .field-notes__heading h2,
+  .contact h2,
+  .guestbook__header h2 {
+    max-width: 100%;
+    font-size: clamp(2.55rem, 12vw, 4rem);
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .feature__header h3 {
+    max-width: 100%;
+    font-size: clamp(2.45rem, 11.5vw, 3.75rem);
+    line-height: 0.98;
+  }
+
+  .about-spread,
+  .case-media,
+  .case-wide-photo,
+  .tob-spread,
+  .brand-team-photo,
+  .field-grid,
+  .movement,
+  .personal-column__body {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .about-spread > *,
+  .case-media > *,
+  .case-wide-photo > *,
+  .tob-spread > *,
+  .brand-team-photo > *,
+  .field-grid > *,
+  .movement > *,
+  .personal-column__body > * {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    max-width: 100%;
+  }
+
+  .field-grid figure,
+  .movement figure {
+    width: 100%;
+    margin: 0 0 2rem !important;
+  }
+
+  .travel-collage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .travel-collage figure,
+  .travel-collage__hero,
+  .travel-collage__wide,
+  .travel-collage__night,
+  .travel-collage__detail,
+  .travel-collage__city,
+  .travel-collage__paris {
+    grid-column: 1 !important;
+    width: 100%;
+    margin: 0 0 2rem !important;
+  }
+
+  .travel-collage img,
+  .travel-collage__hero img,
+  .travel-collage__wide img,
+  .travel-collage__night img,
+  .travel-collage__detail img,
+  .travel-collage__city img,
+  .travel-collage__paris img {
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+
+  .contact__details a,
+  .contact__details p,
+  figcaption {
+    overflow-wrap: anywhere;
+  }
+
+  .contact__guestbook {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .floating-directory {
+    max-width: calc(100vw - 1.3rem);
+  }
+}
+
+@media (max-width: 390px) {
+  .opening h1 {
+    font-size: clamp(2.55rem, 13vw, 3.35rem);
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .site-footer p:nth-child(2) {
+    text-align: left;
   }
 }
