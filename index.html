@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="张思辰（Sia Zhang）的个人观察与项目档案：医疗场景理解、AI用户研究、ToB项目协同、内容判断与真实生活。"
+    />
+    <meta name="theme-color" content="#f3efe7" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:title" content="张思辰 Sia Zhang｜Selected Work &amp; Field Notes" />
+    <meta
+      property="og:description"
+      content="I turn complex ideas into things people can understand, trust and act on."
+    />
+    <link rel="icon" href="data:," />
+    <title>张思辰 Sia Zhang｜Selected Work &amp; Field Notes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header" id="top">
+      <a class="masthead" href="#top" aria-label="返回页面顶部">
+        <span>Sia Zhang</span>
+        <small>Selected Work &amp; Field Notes</small>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span>目录</span><i aria-hidden="true"></i>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        <a href="#about">关于我</a>
+        <a href="#work">案例</a>
+        <a href="#build">AI 实践</a>
+        <a href="#field-notes">现场</a>
+        <a href="#outside">生活</a>
+        <a href="#contact">联系</a>
+        <a href="#guestbook">留言</a>
+      </nav>
+    </header>
+
+    <nav class="reading-route" aria-label="完整阅读路线">
+      <p>READING ROUTE</p>
+      <a href="#top" data-route-link="top"><span>01</span>开场</a>
+      <a href="#about" data-route-link="about"><span>02</span>关于</a>
+      <a href="#contents" data-route-link="contents"><span>03</span>五个 Sia</a>
+      <a href="#work" data-route-link="work"><span>04</span>案例</a>
+      <a href="#build" data-route-link="build"><span>05</span>AI 实践</a>
+      <a href="#index" data-route-link="index"><span>06</span>经历索引</a>
+      <a href="#field-notes" data-route-link="field-notes"><span>07</span>现场</a>
+      <a href="#outside" data-route-link="outside"><span>08</span>生活</a>
+      <a href="#contact" data-route-link="contact"><span>09</span>联系</a>
+      <a href="#guestbook" data-route-link="guestbook"><span>10</span>留言</a>
+    </nav>
+
+    <a class="floating-directory" href="#contents" data-floating-directory>
+      <span>RETURN TO</span><strong>五个 Sia 的目录</strong><i aria-hidden="true">↑</i>
+    </a>
+
+    <main id="main">
+      <section class="opening" aria-labelledby="opening-title">
+        <div class="opening__topline">
+          <p>ISSUE NO. 01</p>
+          <p>SHANGHAI · LONDON</p>
+          <p>张思辰 / SIA ZHANG</p>
+        </div>
+
+        <div class="opening__statement">
+          <p class="opening__eyebrow">HEALTH · AI · TO B · STORIES</p>
+          <h1 id="opening-title">
+            I turn complex ideas into things people can
+            <em>understand, trust</em> and act on.
+          </h1>
+          <div class="opening__note">
+            <p class="kicker">Editor’s note</p>
+            <p class="opening__intro">
+              我总会先听对方到底在问什么，再想怎么把事情讲明白。过去几年，我在医疗、AI、企业服务和品牌项目之间来回切换——有时做研究，有时跑现场，也经常负责把一堆乱糟糟的信息理顺。
+            </p>
+            <div class="opening__links">
+              <a href="#about">60 秒认识我 <span aria-hidden="true">↓</span></a>
+              <a href="#work">阅读项目案例 <span aria-hidden="true">↘</span></a>
+            </div>
+          </div>
+        </div>
+
+        <figure class="opening__portrait">
+          <img
+            src="assets/photos/portrait-aquarium.jpg"
+            alt="Sia 戴着耳机站在水族馆鱼群前"
+            width="1800"
+            height="1800"
+            fetchpriority="high"
+          />
+          <figcaption><span>PORTRAIT / 2026</span>复杂世界里，我仍然先保持好奇。</figcaption>
+        </figure>
+
+        <div class="opening__audience" aria-label="我接触和理解的受众">
+          <span>我曾经面对</span>
+          <p>医生</p><i>·</i><p>诊所运营</p><i>·</i><p>企业管理者</p><i>·</i><p>开发者</p><i>·</i><p>消费者</p>
+        </div>
+
+        <p class="opening__folio" aria-hidden="true">01</p>
+      </section>
+
+      <section class="about section" id="about" aria-labelledby="about-title">
+        <header class="section-header section-header--about">
+          <p class="section-label">THE 60-SECOND READ / 60 秒认识我</p>
+          <h2 id="about-title">不是一条直线，<br /><em>但有一条主线。</em></h2>
+          <p>理解谁在提问、哪里没有被说清，以及怎样让信息真正进入行动。</p>
+        </header>
+
+        <div class="about-spread">
+          <div class="about-spread__lead">
+            <p class="dropcap">
+              本科新闻学（双语）专业排名第 1，现在在 UCL 学习健康人文。新闻训练让我在意“怎样讲清楚”，健康人文则让我多问一句：是谁在定义问题，又是谁还没被听见？
+            </p>
+            <p>
+              工作中，我接触过医疗专业沟通、企业客户活动、开发者项目、品牌合作人研究和 AIGC 用户研究。我的路径不算整齐，但它们都在训练同一件事：先看清人和场景，再决定信息该怎么组织。
+            </p>
+          </div>
+          <dl class="about-spread__facts">
+            <div><dt>NOW</dt><dd>UCL · MA Health Humanities</dd></div>
+            <div><dt>EARLIER</dt><dd>新闻学（双语）· 专业排名第 1</dd></div>
+            <div><dt>WORK LENS</dt><dd>医疗场景 / AI 用户 / ToB 项目 / 内容判断</dd></div>
+            <div><dt>ALSO</dt><dd>中学语文教师资格证 · 喜欢出差与现场</dd></div>
+          </dl>
+          <figure class="about-spread__photo">
+            <img
+              src="assets/photos/study-pharmacy.jpg"
+              alt="Sia 在 UCL School of Pharmacy 门前，左侧可见学院门牌与地址"
+              width="2200"
+              height="1650"
+              loading="lazy"
+            />
+            <figcaption><span>UCL SCHOOL OF PHARMACY / LONDON</span>三月的伦敦已经算春天，但离“暖和”还有一段距离。保留完整现场，也保留我真正学习与生活的坐标。</figcaption>
+          </figure>
+        </div>
+
+        <aside class="course-note" aria-labelledby="course-note-title">
+          <div>
+            <p class="section-label">WHAT HEALTH HUMANITIES ADDED</p>
+            <h3 id="course-note-title">健康不是只发生在一个人的身体里。</h3>
+          </div>
+          <p>
+            在 Child Public Health 的课程论文里，我讨论青少年电子烟：所谓“个人选择”，其实同时被产品可得性、算法曝光、同伴环境与监管塑造。其他作业又把同一个问题推向不同方向——诊断、数据和可见性很重要，但它们也可能漏掉人的处境、文化与亲身经验。
+          </p>
+          <details class="coursework-library">
+            <summary class="coursework-library__toggle">看看六篇作业都在问什么 <span aria-hidden="true">＋</span></summary>
+            <div class="coursework-list" data-coursework-accordion>
+              <details class="coursework-item" data-coursework-item>
+                <summary>
+                  <span class="coursework-item__number">01</span>
+                  <span class="coursework-item__heading">
+                    <b>Child Public Health</b>
+                    <em>为什么青少年电子烟不能只靠“教育个人”解决？</em>
+                  </span>
+                  <span class="coursework-item__icon" aria-hidden="true">＋</span>
+                </summary>
+                <div class="coursework-item__body">
+                  <p class="coursework-item__label">ESSAY / 论文题目</p>
+                  <h4 lang="en">Beyond Individual Choice: Rethinking Adolescent Vaping Prevention Through Upstream Public Health Approaches</h4>
+                  <p>我把青少年电子烟放回产品、平台、同伴与监管共同构成的环境中分析，而不是简单归因于自控力不足。论文比较了产品与可得性监管、数字平台治理和非惩罚性的学校支持，也讨论了如何在保护青少年与保留电子烟对成年吸烟者的减害价值之间维持可信、不过度恐慌的沟通。</p>
+                </div>
+              </details>
+
+              <details class="coursework-item" data-coursework-item>
+                <summary>
+                  <span class="coursework-item__number">02</span>
+                  <span class="coursework-item__heading">
+                    <b>Gender &amp; Global Health</b>
+                    <em>谁的身体必须先被看见，才会被承认为值得照护？</em>
+                  </span>
+                  <span class="coursework-item__icon" aria-hidden="true">＋</span>
+                </summary>
+                <div class="coursework-item__body">
+                  <p class="coursework-item__label">ESSAY / 论文题目</p>
+                  <h4 lang="en">Visible Bodies, Unequal Care: Gender, Recognition and Global Health in <i>Being Human</i></h4>
+                  <p>我从 Wellcome Collection 的三个展品出发，分析身体、疾病叙事与社区照护如何变得“可见”。论文关注一个矛盾：可见性常常是获得承认和资源的前提，但暴露、讲述和照护劳动的代价并不平均，尤其会落在女性与边缘群体身上；因此，被看见是必要条件，却还不是健康正义本身。</p>
+                </div>
+              </details>
+
+              <details class="coursework-item" data-coursework-item>
+                <summary>
+                  <span class="coursework-item__number">03</span>
+                  <span class="coursework-item__heading">
+                    <b>Global Mental Health</b>
+                    <em>当“可测量”变成“最重要”，哪些痛苦会从证据里消失？</em>
+                  </span>
+                  <span class="coursework-item__icon" aria-hidden="true">＋</span>
+                </summary>
+                <div class="coursework-item__body">
+                  <p class="coursework-item__label">ACADEMIC EDITORIAL / 学术评论</p>
+                  <h4 lang="en">Beyond Measurement: What Counts as Evidence in Global Mental Health?</h4>
+                  <p>我以抑郁症为例，追问症状量表、流行病学和随机对照试验为何更容易成为政策认可的证据，以及这种可比性会遮蔽哪些文化语境、生活关系和个人意义。论文并不反对量化，而是主张让定性研究、亲历者参与和共同生产进入问题定义与优先级制定，而不只是作为研究末端的补充。</p>
+                </div>
+              </details>
+
+              <details class="coursework-item" data-coursework-item>
+                <summary>
+                  <span class="coursework-item__number">04</span>
+                  <span class="coursework-item__heading">
+                    <b>Illness</b>
+                    <em>当临床语言拥有解释权，患者自己的知识还剩多少位置？</em>
+                  </span>
+                  <span class="coursework-item__icon" aria-hidden="true">＋</span>
+                </summary>
+                <div class="coursework-item__body">
+                  <p class="coursework-item__label">ESSAY / 论文题目</p>
+                  <h4 lang="en">How Is the Experience of Mental Illness Shaped by Epistemic and Clinical Power? A Study of Esmé Weijun Wang’s <i>The Collected Schizophrenias</i></h4>
+                  <p>借助“认识论不正义”，我分析 Esmé Weijun Wang 的精神疾病书写如何揭示临床判断对可信度与解释权的分配。论文特别讨论“缺乏自知力”一类标签怎样预先削弱患者的自我理解，也指出叙事虽然能抵抗单一解释，却不能独自改变制度：患者知识需要进入临床知识的构成，而不只是被礼貌地倾听。</p>
+                </div>
+              </details>
+
+              <details class="coursework-item" data-coursework-item>
+                <summary>
+                  <span class="coursework-item__number">05</span>
+                  <span class="coursework-item__heading">
+                    <b>Madness</b>
+                    <em>技术与现代生活如何改变人们理解疲惫、过载和疾病的方式？</em>
+                  </span>
+                  <span class="coursework-item__icon" aria-hidden="true">＋</span>
+                </summary>
+                <div class="coursework-item__body">
+                  <p class="coursework-item__label">ESSAY / 论文题目</p>
+                  <h4 lang="en">Nervous Modernity: Neurasthenia, Technology, and the Making of the Modern Self</h4>
+                  <p>我把十九世纪的神经衰弱与电报带来的速度、响应压力和时间感放在一起阅读，并比较医学写作、视觉材料与报刊语言。重点不是宣称新技术直接制造了新疾病，而是说明“神经、能量与过载”如何成为当时理解现代生活的语言，也帮助我们反思今天看似自然的压力、倦怠和耗竭叙事。</p>
+                </div>
+              </details>
+
+              <details class="coursework-item" data-coursework-item>
+                <summary>
+                  <span class="coursework-item__number">06</span>
+                  <span class="coursework-item__heading">
+                    <b>MA Health Humanities Dissertation</b>
+                    <em>当同一个诊断进入英国与中国大陆媒体，为什么会形成不同的公共理解？</em>
+                  </span>
+                  <span class="coursework-item__icon" aria-hidden="true">＋</span>
+                </summary>
+                <div class="coursework-item__body">
+                  <p class="coursework-item__label">DISSERTATION DRAFT / 硕士论文草稿 · 研究进行中</p>
+                  <h4 lang="en">From Diagnosis to Discourse: Bulimia Nervosa, Media Representation, and Public Intelligibility in the United Kingdom and Mainland China (1990–2015)</h4>
+                  <p>这篇正在修改中的硕士论文分析了 75 篇新闻与正式数字媒体材料，其中英国 51 篇、中国大陆 24 篇。英国语料常通过名人访谈、个人叙事和家属回忆，把隐蔽的进食行为连接到心理感受、失控与脆弱；中国大陆的健康教育和医生主导报道则更多由专家界定模糊行为，并借家庭、法律与性别角色后果说明其社会意义。我的核心发现是：诊断名称的传播不等于完整公共意义的复制；叙事形式、谁拥有解释权、道德评价以及患者被塑造成怎样的人，共同决定一种行为何时会被承认为精神疾病的痛苦。</p>
+                </div>
+              </details>
+            </div>
+          </details>
+        </aside>
+
+        <div class="curiosity-line" aria-label="我持续好奇的问题">
+          <p>RECENTLY CURIOUS ABOUT</p>
+          <span>为什么有人会把自己做的 AI 模板叫“孩子”</span>
+          <span>一个产品第一次被理解的时刻</span>
+          <span>城市如何帮助陌生人快速适应</span>
+        </div>
+
+        <aside class="surprise-note" aria-labelledby="surprise-title">
+          <div>
+            <p class="section-label">A SMALL SURPRISE / 不写进简历的小纸条</p>
+            <h3 id="surprise-title">抽一张，认识一个不太正式的我。</h3>
+          </div>
+          <p class="surprise-note__copy" data-surprise-copy aria-live="polite">
+            第一次参加一整天的全英学术会议，结束时我的脑子像刚跑完一场半马。
+          </p>
+          <button type="button" data-surprise-button>
+            <span>再抽一张</span><i aria-hidden="true">↻</i>
+          </button>
+          <p class="surprise-note__count"><span data-surprise-index>01</span> / 05</p>
+        </aside>
+      </section>
+
+      <section class="contents section" id="contents" aria-labelledby="contents-title">
+        <header class="section-header">
+          <p class="section-label">CONTENTS / 目录</p>
+          <h2 id="contents-title">你想认识哪一个 <em>Sia?</em></h2>
+          <div class="contents-intro">
+            <p>这不是五种人设。每个入口都会打开对应章节，看完可以直接回到这里。</p>
+            <p class="contents-progress" aria-live="polite"><span data-read-count>0</span> / 5 已读</p>
+          </div>
+        </header>
+
+        <nav class="contents-list contents-list--visual" aria-label="个人内容索引">
+          <a href="#case-ai" data-case-trigger="case-ai" data-reader-id="case-ai">
+            <span>01</span><strong>研究 AI 用户的 Sia</strong><small>USER RESEARCH</small>
+            <figure><img src="assets/photos/work-maker-day.jpg" alt="Sia 在飞书 Maker Day 活动现场" loading="lazy" /></figure>
+            <b><span data-reader-label>查看</span><i data-reader-arrow aria-hidden="true">↘</i></b>
+          </a>
+          <a href="#case-medical" data-case-trigger="case-medical" data-reader-id="case-medical">
+            <span>02</span><strong>在医疗项目中倾听一线问题的 Sia</strong><small>FIELD LISTENING</small>
+            <figure><img src="assets/photos/work-medical.jpg" alt="Sia 在修丽可医学教育项目现场" loading="lazy" /></figure>
+            <b><span data-reader-label>查看</span><i data-reader-arrow aria-hidden="true">↘</i></b>
+          </a>
+          <a href="#case-tob" data-case-trigger="case-tob" data-reader-id="case-tob">
+            <span>03</span><strong>在 ToB 活动现场协调项目的 Sia</strong><small>PROJECT CONTEXT</small>
+            <figure><img src="assets/photos/work-launch.jpg" alt="飞书年度产品发布会主场" loading="lazy" /></figure>
+            <b><span data-reader-label>查看</span><i data-reader-arrow aria-hidden="true">↘</i></b>
+          </a>
+          <a href="#travel" data-section-trigger="travel" data-reader-id="travel">
+            <span>04</span><strong>在十余个国家和地区移动的 Sia</strong><small>TRAVEL ARCHIVE</small>
+            <figure><img src="assets/photos/travel-zakynthos.jpg" alt="Sia 在希腊扎金索斯沉船湾" loading="lazy" /></figure>
+            <b><span data-reader-label>查看</span><i data-reader-arrow aria-hidden="true">↘</i></b>
+          </a>
+          <a href="#myself" data-details-trigger="myself" data-reader-id="myself">
+            <span>05</span><strong>完成长期健康改变的 Sia</strong><small>PERSONAL NOTE</small>
+            <figure><img src="assets/photos/active-riding.jpg" alt="Sia 在伦敦学习骑马" loading="lazy" /></figure>
+            <b><span data-reader-label>查看</span><i data-reader-arrow aria-hidden="true">↘</i></b>
+          </a>
+        </nav>
+
+        <aside class="contents-continuation">
+          <p><span>五个 Sia</span>是人物入口，不是整站目录。</p>
+          <div>
+            <a href="#case-partner" data-case-trigger="case-partner">品牌判断案例 <i aria-hidden="true">↘</i></a>
+            <a href="#build">AI 协作实践 <i aria-hidden="true">↘</i></a>
+            <a href="#index">完整经历索引 <i aria-hidden="true">↘</i></a>
+            <a href="#field-notes">现场切片 <i aria-hidden="true">↘</i></a>
+            <a href="#guestbook">最后留句话 <i aria-hidden="true">↘</i></a>
+          </div>
+        </aside>
+      </section>
+
+      <section class="work" id="work" aria-labelledby="work-title">
+        <div class="work-intro section">
+          <p class="section-label">SELECTED WORK / 经过脱敏的项目叙述</p>
+          <h2 id="work-title">Four cases,<br /><em>told as stories.</em></h2>
+          <p class="work-intro__copy">
+            这里不陈列旧文件，而是重写问题、方法与判断过程。人物名单、内部截图、医学答复、患者信息与时点性商业资料均不公开。
+          </p>
+          <p class="work-intro__aside">
+            <span>PUBLIC ARCHIVE RULE</span>
+            只说能够核对的事实。没有被本人确认的职责、结果和数字，不用“合理推导”补齐。
+          </p>
+        </div>
+
+        <article class="feature feature--ai" id="case-ai" aria-labelledby="ai-title">
+          <header class="feature__header section">
+            <p class="feature__number">CASE 01</p>
+            <p class="feature__subject">AIGC / 用户研究 / 产品采用</p>
+            <h3 id="ai-title">用户说愿意用，<br />不等于产品已经被理解。</h3>
+            <p class="feature__deck">
+              630 份有效样本里，我最想弄清楚的不是“大家喜不喜欢 AI”，而是用户在什么情况下真的愿意把它带进自己的任务里。
+            </p>
+            <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-ai-panel" data-case-toggle="case-ai">
+              <span>展开案例</span><i aria-hidden="true">＋</i>
+            </button>
+          </header>
+
+          <div class="case-panel" id="case-ai-panel" hidden>
+          <div class="feature__body feature__body--reverse section">
+            <div class="feature__story prose">
+              <p class="dropcap">
+                采用意愿不是一个孤立的“喜欢或不喜欢”。用户如何理解 AI、能否看见它对真实任务的价值、第一次使用是否容易，都会影响产品是否真正走进日常。
+              </p>
+              <p>
+                研究被继续翻译为产品推广问题：能否用真实任务场景展示价值？能否降低首次使用门槛？是否需要更清楚的用户教育和预期管理？这些是从研究走向行动的连接点，而不是对所有产品都成立的万能答案。
+              </p>
+              <aside class="publication-note" aria-labelledby="aigc-publication-title">
+                <p class="publication-note__label">PUBLISHED RESEARCH / 已发表论文</p>
+                <h4 id="aigc-publication-title" lang="en">How AI Literacy Affects the Intention to Use AIGC: An Empirical TAM-Based Study</h4>
+                <p class="publication-note__meta"><i>Journal of Big Data and Computing</i> · 2(3) · 168–173 · 2024</p>
+                <p class="publication-note__summary">论文基于技术接受模型（TAM），检验 AI 素养如何通过感知有用性与感知易用性影响 AIGC 使用意愿；两者均发挥部分中介作用。</p>
+                <div class="publication-note__links" aria-label="AIGC 论文查看与下载链接">
+                  <a class="publication-note__primary" href="assets/papers/how-ai-literacy-affects-aigc-adoption.pdf" target="_blank" rel="noopener noreferrer">阅读全文 PDF <span aria-hidden="true">↗</span></a>
+                  <a href="https://doi.org/10.62517/jbdc.202401326" target="_blank" rel="noopener noreferrer">DOI 永久链接 <span aria-hidden="true">↗</span></a>
+                </div>
+              </aside>
+            </div>
+            <aside class="variable-note">
+              <p>RESEARCH LENS</p>
+              <ol>
+                <li><span>01</span>AI 素养</li>
+                <li><span>02</span>感知有用性</li>
+                <li><span>03</span>感知易用性</li>
+                <li><span>04</span>使用意愿</li>
+              </ol>
+              <strong>630</strong><small>份有效样本</small>
+            </aside>
+          </div>
+
+          <div class="case-media case-media--ai section">
+            <figure class="research-map" aria-label="AIGC 用户采用研究变量关系示意">
+              <div class="research-map__core"><strong>630</strong><span>有效样本</span></div>
+              <span class="research-map__node research-map__node--one">AI 素养</span>
+              <span class="research-map__node research-map__node--two">价值感知</span>
+              <span class="research-map__node research-map__node--three">易用性感知</span>
+              <span class="research-map__node research-map__node--four">使用意愿</span>
+              <figcaption>研究变量关系的编辑化示意，不表示样本占比或因果强度。</figcaption>
+            </figure>
+            <figure class="case-photo case-photo--maker">
+              <img src="assets/photos/work-maker-day.jpg" alt="Sia 在飞书 Maker Day 活动现场" loading="lazy" />
+              <figcaption><span>FROM RESEARCH TO FIELD</span>在开发者活动里，我又从真实使用场景观察：用户会怎样介绍自己做出的 AI 模板。</figcaption>
+            </figure>
+          </div>
+
+          <blockquote class="pullquote section">
+            <p>“一个产品被采用，往往始于用户能在自己的任务里认出它。”</p>
+            <small>这是本案例的研究转化命题，不是对原始统计结果的额外声称。</small>
+          </blockquote>
+          <div class="case-panel__footer section">
+            <button type="button" data-case-close="case-ai"><span class="return-button__copy"><small>CHAPTER COMPLETE</small>看完了，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
+            <a class="case-next" href="#case-medical" data-case-trigger="case-medical"><span><small>NEXT CASE</small>下一篇：165 个一线问题</span><i aria-hidden="true">↓</i></a>
+          </div>
+          </div>
+        </article>
+
+        <article class="feature feature--medical" id="case-medical" aria-labelledby="medical-title">
+          <header class="feature__header section">
+            <p class="feature__number">CASE 02</p>
+            <p class="feature__subject">需求归纳 / 知识标准化 / 医疗沟通</p>
+            <h3 id="medical-title">165 个问题之后，<br />真正需要整理的是什么？</h3>
+            <p class="feature__deck">
+              同一个担心，会从不同地区、用不同说法反复出现。我的工作不是替医学团队回答，而是先把大家到底在担心什么理顺。
+            </p>
+            <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-medical-panel" data-case-toggle="case-medical">
+              <span>展开案例</span><i aria-hidden="true">＋</i>
+            </button>
+          </header>
+
+          <div class="case-panel" id="case-medical-panel" hidden>
+          <div class="feature__body section">
+            <aside class="feature__margin">
+              <p><span>已确认规模</span><strong>165</strong> 个一线产品问题</p>
+              <p><span>结构结果</span><strong>11</strong> 类 FAQ 资料</p>
+              <p><span>我的边界</span>负责需求归纳与知识标准化；不声称由本人制定医学答案。</p>
+            </aside>
+
+            <div class="feature__story prose">
+              <p class="dropcap">
+                问题由区域培训师和销售从诊所运营、顾问及医生处汇总而来。打开表格时，最先看到的是重复和“说不清”：有人问精华为什么上脸会变黄，有人担心刺痛泛红是不是正常，也有人只说“不舒服”，却没有讲明使用场景。
+              </p>
+              <p>
+                我的工作是去重并分类、按产品线建立 11 类 FAQ 资料库，再配合医学团队整理标准答复，支持培训师和诊所回应消费者咨询。重复本身也是线索：它说明某个关注点还没有被说清，或现有资料不够容易被找到。
+              </p>
+            </div>
+          </div>
+
+          <figure class="case-wide-photo section">
+            <img src="assets/photos/work-medical.jpg" alt="Sia 在修丽可医学教育项目现场" loading="lazy" />
+            <figcaption><span>MEDICAL FIELD NOTE</span>医学教育项目现场。这里呈现的是工作场景，不公开医生名单、内部答复或诊所资料。</figcaption>
+          </figure>
+
+          <figure class="process section" aria-labelledby="process-title">
+            <figcaption>
+              <div>
+                <p class="section-label">INTERACTIVE / 交互过程</p>
+                <h4 id="process-title">从 165 个问题，到 11 类知识结构</h4>
+              </div>
+              <p id="process-description">先完整看见杂乱、重复、表达不一的问题。</p>
+            </figcaption>
+
+            <div class="process__stage">
+              <div class="process__field" data-process-field data-stage="raw" aria-hidden="true"></div>
+              <div class="process__output" aria-hidden="true">
+                <p>TRAINERS</p><i>→</i><p>CLINICS</p><i>→</i><p>CONSUMER QUESTIONS</p>
+              </div>
+              <p class="process__counter"><span data-process-index>01</span> / 04</p>
+            </div>
+
+            <div class="process__controls" role="tablist" aria-label="问题整理过程">
+              <button type="button" role="tab" aria-selected="true" data-process-stage="raw">
+                <span>01</span><strong>收集</strong><small>165 个问题</small>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-process-stage="distill">
+                <span>02</span><strong>去重与归并</strong><small>寻找重复关注点</small>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-process-stage="index">
+                <span>03</span><strong>建立索引</strong><small>11 类 FAQ</small>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-process-stage="reuse">
+                <span>04</span><strong>协同与复用</strong><small>统一专业表达</small>
+              </button>
+            </div>
+            <p class="process__note">
+              抽象化过程示意。图形不对应真实问题、权重或医学答案，也不展示公司内部资料。
+            </p>
+          </figure>
+          <div class="case-panel__footer section">
+            <button type="button" data-case-close="case-medical"><span class="return-button__copy"><small>CHAPTER COMPLETE</small>看完了，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
+            <a class="case-next" href="#case-tob" data-case-trigger="case-tob"><span><small>NEXT CASE</small>下一篇：ToB 现场协同</span><i aria-hidden="true">↓</i></a>
+          </div>
+          </div>
+        </article>
+
+        <article class="feature feature--tob" id="case-tob" aria-labelledby="tob-title">
+          <header class="feature__header section">
+            <p class="feature__number">CASE 03</p>
+            <p class="feature__subject">企业客户 / 开发者 / 多方协同</p>
+            <h3 id="tob-title">一场活动里，<br />每个人在意的都不一样。</h3>
+            <p class="feature__deck">
+              CEO、CIO、销售、企业 IT 与开发者来到同一个项目，并不代表他们带着同一种问题。规模只是表面，真正的工作是知道应该和谁对齐什么。
+            </p>
+            <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-tob-panel" data-case-toggle="case-tob">
+              <span>展开案例</span><i aria-hidden="true">＋</i>
+            </button>
+          </header>
+
+          <div class="case-panel" id="case-tob-panel" hidden>
+            <div class="tob-dashboard section" aria-label="飞书商业化经历关键场景">
+              <div><strong>2,000+</strong><span>年度产品发布会<br />企业客户及管理者</span></div>
+              <div><strong>15</strong><span>城市<br />开发者项目协同</span></div>
+              <div><strong>2</strong><span>类核心受众<br />企业决策者与开发者</span></div>
+              <p>数字单位不同，因此不做比例比较；它们只帮助快速看见项目的规模、跨度与受众结构。</p>
+            </div>
+
+            <div class="tob-spread section">
+              <figure class="tob-spread__launch">
+                <img src="assets/photos/work-launch.jpg" alt="飞书年度产品发布会现场" loading="lazy" />
+                <figcaption><span>ENTERPRISE</span>年度产品发布会：记录现场问答，协调销售与执行团队处理变化。</figcaption>
+              </figure>
+              <div class="tob-spread__story prose">
+                <p class="dropcap">企业管理者更关心协作工具能否进入实际业务，销售需要维护客户关系和现场体验；开发者则更愿意展示自己创造的模板，交流也更年轻、更像一起“玩起来”。</p>
+                <p>我没有负责销售签约，也不把活动规模写成个人业绩。我的角色更接近连接现场：整理信息、跟进节点、处理临时变化，并在不同受众之间切换表达。</p>
+              </div>
+              <figure class="tob-spread__maker">
+                <img src="assets/photos/work-maker-day.jpg" alt="Sia 在飞书 Maker Day 活动现场" loading="lazy" />
+                <figcaption><span>DEVELOPERS</span>Maker Day：有人把自己做的模板叫“孩子”，技术产品也因此有了更具体的情感和使用场景。</figcaption>
+              </figure>
+            </div>
+
+            <div class="case-panel__footer section">
+              <button type="button" data-case-close="case-tob"><span class="return-button__copy"><small>CHAPTER COMPLETE</small>看完了，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
+              <a class="case-next" href="#case-partner" data-case-trigger="case-partner"><span><small>NEXT CASE</small>下一篇：品牌合作判断</span><i aria-hidden="true">↓</i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature feature--partner" id="case-partner" aria-labelledby="partner-title">
+          <header class="feature__header section">
+            <p class="feature__number">CASE 04</p>
+            <p class="feature__subject">公开资料研究 / 合作判断 / 风险意识</p>
+            <h3 id="partner-title">选择合作人，<br />也是在选择品牌会说什么话。</h3>
+            <p class="feature__deck">
+              从 10+ 位候选合作人中提出建议。比起做一张看上去很科学的总分表，我更关心：这个人和产品放在一起，会不会让消费者觉得合理？
+            </p>
+            <button class="case-toggle" type="button" aria-expanded="false" aria-controls="case-partner-panel" data-case-toggle="case-partner">
+              <span>展开案例</span><i aria-hidden="true">＋</i>
+            </button>
+          </header>
+
+          <div class="case-panel" id="case-partner-panel" hidden>
+          <div class="judgement section" aria-label="候选合作人比较维度">
+            <p class="judgement__lead">WHAT I COMPARED</p>
+            <ol>
+              <li><span>01</span><strong>受众</strong><p>这个人真正影响的是谁？</p></li>
+              <li><span>02</span><strong>内容风格</strong><p>表达方式与产品场景是否相合？</p></li>
+              <li><span>03</span><strong>商业表现</strong><p>公开可见的合作表现如何？</p></li>
+              <li><span>04</span><strong>品牌匹配</strong><p>合作后会强化怎样的品牌印象？</p></li>
+              <li><span>05</span><strong>舆情风险</strong><p>有哪些需要提前识别的风险？</p></li>
+            </ol>
+          </div>
+
+          <div class="feature__body section">
+            <aside class="feature__margin feature__margin--text">
+              <p class="kicker">可核对结果</p>
+              <p>合作人建议获团队采纳；结合其户外节目经历提出“暴晒前后”内容角度，进入最终脚本。</p>
+            </aside>
+            <div class="feature__story prose">
+              <p class="dropcap">
+                对候选人的研究不是给人贴标签，而是让合作建议有依据。最后的建议需要回到具体产品场景：品牌想和谁对话、希望怎样被理解、可以承担什么风险。
+              </p>
+              <p>
+                内容上线后在品牌投流支持下获得 100 万+点赞。这个结果属于整个项目，而不是个人“独立制造的爆款”；网页只展示我的判断与参与边界。
+              </p>
+            </div>
+          </div>
+          <figure class="brand-team-photo section">
+            <img src="assets/photos/work-brand-team.jpg" alt="Sia 与修丽可品牌传播团队在欧莱雅中国办公室合影" loading="lazy" />
+            <figcaption><span>TEAM NOTE</span>品牌传播实习结束时的团队合照。内容结果属于团队；这里保留的是我参与判断与执行的部分。</figcaption>
+          </figure>
+          <div class="case-panel__footer section">
+            <button type="button" data-case-close="case-partner"><span class="return-button__copy"><small>CHAPTER COMPLETE</small>看完了，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
+            <a class="case-next" href="#build"><span><small>NEXT CHAPTER</small>继续看：这个网站怎样与 AI 协作完成</span><i aria-hidden="true">↓</i></a>
+          </div>
+          </div>
+        </article>
+
+        <article class="build-case" id="build" aria-labelledby="build-title">
+          <div class="section build-case__header">
+            <p class="section-label">AI WORKING NOTE / THIS SITE</p>
+            <h3 id="build-title">这个网站本身，<br /><em>也是一次 AI 协作实验。</em></h3>
+            <p>
+              从 13 份不同阶段的材料和 45 张照片出发，AI 帮我读材料、找冲突、搭结构和写代码；但哪些话是真的、哪些照片该公开、最后听起来像不像我，仍然要由我负责。
+            </p>
+          </div>
+
+          <div class="section build-case__flow" aria-label="网站制作过程">
+            <article><span>01</span><h4>Archive</h4><p>把分散的简历、求职笔记、论文与照片变成可检索的素材档案。</p></article>
+            <article><span>02</span><h4>Truth audit</h4><p>遇到职责、指标或口径冲突时，回到本人回忆与原始材料，不沿用最漂亮的说法。</p></article>
+            <article><span>03</span><h4>Editorial choice</h4><p>选择三个能迁移的方法案例，以及少量真正能够让人认识我的生活照片。</p></article>
+            <article><span>04</span><h4>Build &amp; test</h4><p>用 Codex 完成结构、代码与检查，再由我逐条确认语气、隐私和叙事边界。</p></article>
+          </div>
+
+          <div class="section build-case__split">
+            <div><p>AI HELPED WITH</p><span>读取与检索</span><span>版本比较</span><span>信息架构</span><span>代码与检查</span></div>
+            <div><p>I DECIDED</p><span>事实与口径</span><span>公开边界</span><span>图片选择</span><span>最终声音</span></div>
+          </div>
+
+          <p class="section build-case__principle">AI 可以先跑得很快，但事实、边界和最后的语气，还是得由我自己签字。</p>
+        </article>
+
+        <nav class="chapter-bridge chapter-bridge--dark section" aria-label="案例之后继续阅读">
+          <p><span>YOU ARE HERE</span>04–05 / 案例与 AI 实践</p>
+          <a href="#index"><small>NEXT CHAPTER</small>继续看完整经历索引 <i aria-hidden="true">↓</i></a>
+          <a href="#guestbook" class="chapter-bridge__note"><small>SHORTCUT</small>已经有想法？直接给我留言 <i aria-hidden="true">↘</i></a>
+        </nav>
+      </section>
+
+      <section class="index section" id="index" aria-labelledby="index-title">
+        <header class="section-header section-header--index">
+          <p class="section-label">CONTEXT INDEX / 经历索引</p>
+          <h2 id="index-title">场景不同，<br /><em>判断可以迁移。</em></h2>
+          <p>这里是给项目案例补充的现场索引，不重复写一份长简历。</p>
+        </header>
+
+        <div class="index-list">
+          <article>
+            <p>01 / MEDICAL</p><h3>修丽可医学部</h3><span>165 个一线问题与 11 类 FAQ · 2 场医生 Webinar · IMCAS 五篇传播矩阵 · 医学视频与专业会议</span>
+          </article>
+          <article id="tob-note">
+            <p>02 / TO B</p><h3>飞书商业化</h3><span>2,000+人年度发布会 · 全国 15 城开发者项目 · Maker Day · 企业管理者、销售与开发者协同</span>
+          </article>
+          <article>
+            <p>03 / BRAND</p><h3>修丽可品牌传播</h3><span>10+候选合作人研究 · 合作建议获采纳 · Brief、卖点与脚本校准</span>
+          </article>
+          <article>
+            <p>04 / GLOBAL</p><h3>医疗科技全球市场</h3><span>以英文支持 14 个国家及地区的包装和品牌视觉适配；不把重复设计工作包装成全球战略</span>
+          </article>
+          <article>
+            <p>05 / RESEARCH</p><h3>AIGC 用户研究</h3><span>655 份问卷、630 份有效样本 · 从统计结果继续追问产品采用与用户教育</span>
+          </article>
+        </div>
+
+        <nav class="chapter-bridge" aria-label="经历索引之后继续阅读">
+          <p><span>YOU ARE HERE</span>06 / 经历索引</p>
+          <a href="#field-notes"><small>NEXT CHAPTER</small>继续看两个现场切片 <i aria-hidden="true">↓</i></a>
+        </nav>
+      </section>
+
+      <section class="field-notes" id="field-notes" aria-labelledby="field-title">
+        <header class="section field-notes__heading">
+          <p class="section-label">FIELD NOTES / 现场切片</p>
+          <h2 id="field-title">两段不在简历主线里的<br /><em>真实现场。</em></h2>
+          <p>工作照片已经回到对应案例；这里留下两段更像生活注脚的现场。</p>
+        </header>
+
+        <div class="field-grid field-grid--notes section">
+          <figure class="field-grid__live">
+            <img src="assets/photos/work-livestream.jpg" alt="Sia 在本科直播实践课中担任主播" loading="lazy" />
+            <figcaption><span>FIRST LIVE</span>我以为亲友只是来凑在线人数，妈妈却真的买了好几样办公用品。她说：“我本来就要用。”一两个陌生观众也意外地停留了很久。</figcaption>
+          </figure>
+          <figure class="field-grid__oxford">
+            <img src="assets/photos/study-oxford.jpg" alt="Sia 在牛津 St Anne’s College 参加医学人文学术会议" width="1200" height="1800" loading="lazy" />
+            <figcaption><span>OXFORD / ATTENDEE</span>刚到英国不久，我去 St Anne’s College 旁听一整天关于延寿、衰老与死亡的医学人文会议，也和现场学者交流。全英高强度输入结束后，收获很多，头也真的很痛。</figcaption>
+          </figure>
+        </div>
+
+        <nav class="chapter-bridge section" aria-label="现场切片之后继续阅读">
+          <p><span>YOU ARE HERE</span>07 / 现场</p>
+          <a href="#outside"><small>NEXT CHAPTER</small>继续看工作之外的我 <i aria-hidden="true">↓</i></a>
+        </nav>
+      </section>
+
+      <section class="outside" id="outside" aria-labelledby="outside-title">
+        <div class="section outside__heading">
+          <p class="section-label">AFTER HOURS / 工作之外</p>
+          <h2 id="outside-title">A life is not<br />a list of skills.</h2>
+        </div>
+
+        <article class="travel section" id="travel">
+          <div class="travel__copy">
+            <p class="kicker">TRAVEL ARCHIVE / 10+ COUNTRIES & REGIONS</p>
+            <h3>我喜欢移动，也喜欢现场。</h3>
+            <p>
+              旅行对我不是“去过多少国家”的勋章。它更像持续练习：规划、临场调整、在陌生环境里开口，以及观察一个地方怎样组织人的生活。
+            </p>
+            <details class="travel-plan-b">
+              <summary>一次被取消的航班，后来去了哪里？ <span aria-hidden="true">＋</span></summary>
+              <div>
+                <p class="travel-plan-b__route"><s>FLORENCE → LONDON</s><br />FLORENCE → MILAN → LISBON → LONDON</p>
+                <p>
+                  在佛罗伦萨已经盖完出境章，航班却突然取消。航空公司给的方案是两天后经巴塞罗那回伦敦；我选择退票，赶上末班火车去米兰，再飞到一直想去的里斯本。后来写邮件跟进，除了退款，还收到 250 欧元补偿。
+                </p>
+                <p>它没有让我变得“永远不焦虑”，只是从那以后，遇到不可控的事，我会更快开始找 Plan B。</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="travel-collage" aria-label="旅行照片精选">
+            <figure class="travel-collage__hero">
+              <img src="assets/photos/travel-zakynthos.jpg" alt="Sia 在希腊扎金索斯沉船湾" loading="lazy" />
+              <figcaption>ZAKYNTHOS / GREECE</figcaption>
+            </figure>
+            <figure class="travel-collage__wide">
+              <img src="assets/photos/travel-tibet.jpg" alt="Sia 在西藏山脉前张开双臂" loading="lazy" />
+              <figcaption>TIBET / SOLO TRIP</figcaption>
+            </figure>
+            <figure class="travel-collage__night">
+              <img src="assets/photos/travel-aurora.jpg" alt="特罗姆瑟夜空中的极光" loading="lazy" />
+              <figcaption>TROMSØ / NORTHERN LIGHTS</figcaption>
+            </figure>
+            <figure class="travel-collage__detail">
+              <img src="assets/photos/travel-taiwan.jpg" alt="台湾街边厨房里的生活场景" loading="lazy" />
+              <figcaption>TAIWAN / STREET DETAIL</figcaption>
+            </figure>
+            <figure class="travel-collage__city">
+              <img src="assets/photos/travel-amsterdam.jpg" alt="阿姆斯特丹运河与小船" loading="lazy" />
+              <figcaption>AMSTERDAM / A SMALL BOAT</figcaption>
+            </figure>
+            <figure class="travel-collage__paris">
+              <img src="assets/photos/travel-paris.jpg" alt="Sia 在埃菲尔铁塔旁看落日" loading="lazy" />
+              <figcaption>PARIS / GOLDEN HOUR</figcaption>
+            </figure>
+          </div>
+          <div class="reader-return reader-return--travel">
+            <button type="button" data-return-contents data-reader-complete="travel"><span class="return-button__copy"><small>TRAVEL CHAPTER COMPLETE</small>看完旅行这一章，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
+          </div>
+        </article>
+
+        <article class="movement section" aria-labelledby="movement-title">
+          <div class="movement__copy">
+            <p class="section-label">MOVING / NOT SITTING STILL</p>
+            <h3 id="movement-title">新鲜感会让我<br /><em>更投入。</em></h3>
+            <p>我喜欢出差，也喜欢到真实现场。不是因为坐不住，而是人、问题和判断通常都会在现场变得更具体。</p>
+          </div>
+          <figure class="movement__ride">
+            <img src="assets/photos/active-riding.jpg" alt="Sia 在伦敦骑马" loading="lazy" />
+            <figcaption>RIDING / LONDON</figcaption>
+          </figure>
+          <figure class="movement__flight">
+            <img src="assets/photos/active-paragliding.jpg" alt="Sia 在瑞士体验滑翔伞" loading="lazy" />
+            <figcaption>PARAGLIDING / SWITZERLAND</figcaption>
+          </figure>
+        </article>
+
+        <aside class="privacy-note section" aria-labelledby="privacy-title">
+          <p class="privacy-note__label">SOME STORIES STAY OFF CAMERA</p>
+          <h3 id="privacy-title">有些照片很重要，<br />但不该成为求职装饰。</h3>
+          <div>
+            <p>
+              我持有中学语文教师资格证，也定期参与面向恶性实体瘤患儿的主题活动；此外参与过自闭症青少年陪伴活动和家庭纪录片项目。
+            </p>
+            <p>
+              这些经历有照片，但儿童、家庭和服务对象的面孔不会出现在公开作品集中。专业判断也包括：知道什么不应该展示。
+            </p>
+          </div>
+        </aside>
+
+        <aside class="personal-column section" id="myself">
+          <p class="personal-column__label">A SIDEBAR STORY / 01</p>
+          <details>
+            <summary>
+              <span>My longest project was <em>myself.</em></span>
+              <small><b>打开这段故事</b><i aria-hidden="true">＋</i></small>
+            </summary>
+            <div class="personal-column__body">
+              <figure class="personal-column__stage">
+                <img src="assets/photos/school-stage.jpg" alt="2019 年的 Sia 在学校舞台上主持活动" loading="lazy" />
+                <figcaption>2019 / 还没开始改变时，我已经很敢上台。</figcaption>
+              </figure>
+              <div class="personal-column__story">
+                <p class="personal-column__lead">
+                  2019 年，我从约 210 斤开始改变。起点并不宏大：一次当众的体重嘲笑让我很受伤，也让我有点赌气地开始行动。
+                </p>
+                <p>到 180 斤时，那个“想证明给谁看”的念头早就不重要了。最初一年半，我从约 210 斤减到约 140 斤；那只是当时的一个阶段，此后仍继续变化。比某个数字更持久的，是健身逐渐成为了保持至今的习惯。</p>
+                <p>这段经历没有把过去的我变成一个应该被否定的版本。它真正留下的是对身体选择权的掌握、对反复的耐心，以及一个现在仍然保留的小秘密：当前体重不公开。</p>
+              </div>
+              <p class="personal-column__boundary">这里不提供减重方法，也不把外貌变化写成一则“逆袭神话”。</p>
+              <div class="reader-return reader-return--personal">
+                <button type="button" data-return-contents data-reader-complete="myself"><span class="return-button__copy"><small>PERSONAL NOTE COMPLETE</small>看完这段故事，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
+              </div>
+            </div>
+          </details>
+        </aside>
+
+        <nav class="chapter-bridge chapter-bridge--wine section" aria-label="生活章节之后继续阅读">
+          <p><span>YOU ARE HERE</span>08 / 工作之外</p>
+          <a href="#contact"><small>NEXT CHAPTER</small>联系我，或者留下一句话 <i aria-hidden="true">↓</i></a>
+        </nav>
+      </section>
+
+      <section class="contact section" id="contact" aria-labelledby="contact-title">
+        <p class="section-label">CONTACT / 联系</p>
+        <h2 id="contact-title">Let’s begin with<br /><em>a real question.</em></h2>
+        <div class="contact__details">
+          <a href="mailto:1807496752@qq.com">1807496752@qq.com <span aria-hidden="true">↗</span></a>
+          <p><span>BASE</span>上海</p>
+          <p><span>OPEN TO</span>医疗科技、AI、ToB 与市场相关机会；接受出差及北京、深圳机会</p>
+          <p class="contact__resume"><span>RESUME NOTE</span>不提供通用公开简历；建立联系后，可按具体岗位提供对应版本。</p>
+        </div>
+
+        <div class="ask-me">
+          <p>ASK ME ABOUT</p>
+          <span>165 个问题怎样变成 11 类 FAQ</span>
+          <span>为什么 AI 经常写得“很像 AI”</span>
+          <span>被临时推上直播间的那堂课</span>
+          <span>佛罗伦萨航班取消后的临时 Plan B</span>
+        </div>
+        <a class="contact__guestbook" href="#guestbook"><span>不必写邮件，也可以</span><strong>在留言簿里留下一句话</strong><i aria-hidden="true">↓</i></a>
+      </section>
+
+      <section class="guestbook section" id="guestbook" aria-labelledby="guestbook-title">
+        <header class="guestbook__header">
+          <p class="section-label">LEAVE A NOTE / 留下一句话</p>
+          <h2 id="guestbook-title">读到这里，<br /><em>轮到你说一句。</em></h2>
+          <p>可以留下一个问题、一条建议，或你最想继续聊的章节。不必写真实姓名，也请不要留下敏感信息。</p>
+          <div class="guestbook__spotlight" data-message-stage aria-live="polite">
+            <div class="guestbook__spotlight-topline">
+              <span>READER NOTE / 读者留言</span>
+              <button type="button" data-open-messages>查看全部 <b data-message-count>0</b></button>
+            </div>
+            <blockquote data-message-stage-copy>留言簿还在等第一句话。</blockquote>
+            <p><strong data-message-stage-name>Sia 的访客</strong><time data-message-stage-time></time></p>
+          </div>
+        </header>
+
+        <form class="guestbook__form" data-guestbook-form>
+          <label>
+            <span>怎么称呼你？</span>
+            <input type="text" name="guestName" maxlength="24" placeholder="一位路过的读者" autocomplete="nickname" />
+          </label>
+          <label>
+            <span>想说什么？</span>
+            <textarea name="guestMessage" maxlength="240" rows="5" required placeholder="例如：我最想继续听 165 个问题的故事……"></textarea>
+          </label>
+          <label class="guestbook__trap" aria-hidden="true">
+            <span>请不要填写这一项</span>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </label>
+          <div class="guestbook__actions">
+            <button type="submit">把这句话放进留言簿 <span aria-hidden="true">↗</span></button>
+            <button type="button" class="guestbook__read" data-open-messages>打开留言弹窗</button>
+          </div>
+          <p class="guestbook__status" data-guestbook-status aria-live="polite"></p>
+          <p class="guestbook__note" data-guestbook-note>正在确认留言簿的连接方式……</p>
+        </form>
+      </section>
+    </main>
+
+    <dialog class="message-dialog" data-message-dialog aria-labelledby="message-dialog-title">
+      <div class="message-dialog__topline">
+        <div>
+          <p class="section-label">NOTES LEFT HERE</p>
+          <h2 id="message-dialog-title">公开留言簿</h2>
+        </div>
+        <button type="button" data-close-messages aria-label="关闭留言弹窗">关闭 ×</button>
+      </div>
+      <div class="message-dialog__list" data-message-list></div>
+      <p class="message-dialog__empty" data-message-empty>还没有留言。第一句话可以由你来写。</p>
+    </dialog>
+
+    <footer class="site-footer">
+      <a href="#top">SIA ZHANG <span aria-hidden="true">↑</span></a>
+      <p>医疗场景理解 × AI 用户研究 × ToB 项目协同 × 内容表达</p>
+      <p>© <span data-year></span></p>
+    </footer>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "张思辰",
+        "alternateName": "Sia Zhang",
+        "email": "1807496752@qq.com",
+        "homeLocation": "上海",
+        "alumniOf": ["University College London", "上海外国语大学贤达经济人文学院"],
+        "knowsAbout": ["医疗科技", "AI用户研究", "ToB项目协同", "品牌与市场", "内容表达"]
+      }
+    </script>
+    <script src="config.js"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
