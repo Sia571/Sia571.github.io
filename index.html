@@ -17,7 +17,7 @@
     />
     <link rel="icon" href="data:," />
     <title>张思辰 Sia Zhang｜Selected Work &amp; Field Notes</title>
-    <link rel="stylesheet" href="styles.css?v=8" />
+    <link rel="stylesheet" href="styles.css?v=10" />
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -31,33 +31,13 @@
         <span>目录</span><i aria-hidden="true"></i>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="主导航">
-        <a href="#about">关于我</a>
-        <a href="#work">案例</a>
-        <a href="#build">AI 实践</a>
-        <a href="#field-notes">现场</a>
-        <a href="#outside">生活</a>
-        <a href="#contact">联系</a>
-        <a href="#guestbook">留言</a>
+        <a href="#about" data-route-link="about">认识我</a>
+        <a href="#work" data-route-link="work">项目案例</a>
+        <a href="#index" data-route-link="index">经历与现场</a>
+        <a href="#outside" data-route-link="outside">工作之外</a>
+        <a href="#contact" data-route-link="contact">联系</a>
       </nav>
     </header>
-
-    <nav class="reading-route" aria-label="完整阅读路线">
-      <p>READING ROUTE</p>
-      <a href="#top" data-route-link="top"><span>01</span>开场</a>
-      <a href="#about" data-route-link="about"><span>02</span>关于</a>
-      <a href="#contents" data-route-link="contents"><span>03</span>五个 Sia</a>
-      <a href="#work" data-route-link="work"><span>04</span>案例</a>
-      <a href="#build" data-route-link="build"><span>05</span>AI 实践</a>
-      <a href="#index" data-route-link="index"><span>06</span>经历索引</a>
-      <a href="#field-notes" data-route-link="field-notes"><span>07</span>现场</a>
-      <a href="#outside" data-route-link="outside"><span>08</span>生活</a>
-      <a href="#contact" data-route-link="contact"><span>09</span>联系</a>
-      <a href="#guestbook" data-route-link="guestbook"><span>10</span>留言</a>
-    </nav>
-
-    <a class="floating-directory" href="#contents" data-floating-directory>
-      <span>RETURN TO</span><strong>五个 Sia 的目录</strong><i aria-hidden="true">↑</i>
-    </a>
 
     <main id="main">
       <section class="opening" aria-labelledby="opening-title">
@@ -87,7 +67,7 @@
 
         <figure class="opening__portrait">
           <img decoding="async"
-            src="assets/photos/portrait-aquarium.webp?v=3"
+            src="assets/photos/portrait-aquarium.webp?v=4"
             alt="Sia 戴着耳机站在水族馆鱼群前"
             width="1800"
             height="1800"
@@ -128,7 +108,7 @@
           </dl>
           <figure class="about-spread__photo">
             <img decoding="async"
-              src="assets/photos/study-pharmacy.webp?v=3"
+              src="assets/photos/study-pharmacy.webp?v=4"
               alt="Sia 在 UCL School of Pharmacy 门前，左侧可见学院门牌与地址"
               width="2200"
               height="1650"
@@ -283,51 +263,44 @@
 
       <section class="contents section" id="contents" aria-labelledby="contents-title">
         <header class="section-header">
-          <p class="section-label">CONTENTS / 目录</p>
-          <h2 id="contents-title">你想认识哪一个 <em>Sia?</em></h2>
+          <p class="section-label">HOW TO READ / 从这里继续</p>
+          <h2 id="contents-title">第一次来，<br /><em>顺着往下看就好。</em></h2>
           <div class="contents-intro">
-            <p>这不是五种人设。每个入口都会打开对应章节，看完可以直接回到这里。</p>
-            <p class="contents-progress" aria-live="polite"><span data-read-count>0</span> / 5 已读</p>
+            <p>网页已经按“项目案例 → 经历与现场 → 工作之外 → 联系与留言”的顺序排好。直接向下滑即可，不需要反复回到目录。</p>
+            <p class="contents-progress" aria-live="polite"><span data-read-count>0</span> / 4 个章节已访问</p>
           </div>
         </header>
 
-        <nav class="contents-list contents-list--visual" aria-label="个人内容索引">
-          <a href="#case-ai" data-case-trigger="case-ai" data-reader-id="case-ai">
-            <span>01</span><strong>研究 AI 用户的 Sia</strong><small>USER RESEARCH</small>
-            <figure><img decoding="async" src="assets/photos/work-maker-day.webp?v=3" alt="Sia 在飞书 Maker Day 活动现场" loading="lazy" /></figure>
-            <b><span data-reader-label>查看</span><i data-reader-arrow aria-hidden="true">↘</i></b>
+        <nav class="contents-list contents-list--visual" aria-label="四个主章节快速跳转">
+          <a href="#work" data-section-trigger="work" data-reader-id="work">
+            <span>01</span><strong>项目案例</strong><small>AI · 医疗 · TO B · 品牌</small>
+            <b><span data-reader-label>快速跳转</span><i data-reader-arrow aria-hidden="true">↓</i></b>
           </a>
-          <a href="#case-medical" data-case-trigger="case-medical" data-reader-id="case-medical">
-            <span>02</span><strong>在医疗项目中倾听一线问题的 Sia</strong><small>FIELD LISTENING</small>
-            <figure><img decoding="async" src="assets/photos/work-medical.webp?v=3" alt="Sia 在修丽可医学教育项目现场" loading="lazy" /></figure>
-            <b><span data-reader-label>查看</span><i data-reader-arrow aria-hidden="true">↘</i></b>
+          <a href="#index" data-section-trigger="index" data-reader-id="index">
+            <span>02</span><strong>经历与现场</strong><small>CONTEXT · FIELD NOTES</small>
+            <b><span data-reader-label>快速跳转</span><i data-reader-arrow aria-hidden="true">↓</i></b>
           </a>
-          <a href="#case-tob" data-case-trigger="case-tob" data-reader-id="case-tob">
-            <span>03</span><strong>在 ToB 活动现场协调项目的 Sia</strong><small>PROJECT CONTEXT</small>
-            <figure><img decoding="async" src="assets/photos/work-launch.webp?v=3" alt="飞书年度产品发布会主场" loading="lazy" /></figure>
-            <b><span data-reader-label>查看</span><i data-reader-arrow aria-hidden="true">↘</i></b>
+          <a href="#outside" data-section-trigger="outside" data-reader-id="outside">
+            <span>03</span><strong>工作之外</strong><small>TRAVEL · PERSONAL NOTES</small>
+            <b><span data-reader-label>快速跳转</span><i data-reader-arrow aria-hidden="true">↓</i></b>
           </a>
-          <a href="#travel" data-section-trigger="travel" data-reader-id="travel">
-            <span>04</span><strong>在十余个国家和地区移动的 Sia</strong><small>TRAVEL ARCHIVE</small>
-            <figure><img decoding="async" src="assets/photos/travel-zakynthos.webp?v=3" alt="Sia 在希腊扎金索斯沉船湾" loading="lazy" /></figure>
-            <b><span data-reader-label>查看</span><i data-reader-arrow aria-hidden="true">↘</i></b>
-          </a>
-          <a href="#myself" data-details-trigger="myself" data-reader-id="myself">
-            <span>05</span><strong>完成长期健康改变的 Sia</strong><small>PERSONAL NOTE</small>
-            <figure><img decoding="async" src="assets/photos/active-riding.webp?v=3" alt="Sia 在伦敦学习骑马" loading="lazy" /></figure>
-            <b><span data-reader-label>查看</span><i data-reader-arrow aria-hidden="true">↘</i></b>
+          <a href="#contact" data-section-trigger="contact" data-reader-id="contact">
+            <span>04</span><strong>联系与留言</strong><small>CONTACT · GUESTBOOK</small>
+            <b><span data-reader-label>快速跳转</span><i data-reader-arrow aria-hidden="true">↓</i></b>
           </a>
         </nav>
 
-        <aside class="contents-continuation">
-          <p><span>五个 Sia</span>是人物入口，不是整站目录。</p>
+        <aside class="contents-guide">
           <div>
-            <a href="#case-partner" data-case-trigger="case-partner">品牌判断案例 <i aria-hidden="true">↘</i></a>
-            <a href="#build">AI 协作实践 <i aria-hidden="true">↘</i></a>
-            <a href="#index">完整经历索引 <i aria-hidden="true">↘</i></a>
-            <a href="#field-notes">现场切片 <i aria-hidden="true">↘</i></a>
-            <a href="#guestbook">最后留句话 <i aria-hidden="true">↘</i></a>
+            <span>YOU ARE HERE · 01 / 认识我</span>
+            <strong>上面的四行只是快速跳转，不是必须逐个点击的菜单。</strong>
+            <p>四个项目案例会依次出现；想看细节就展开，读完后直接进入下一篇。</p>
           </div>
+          <a href="#case-ai" data-case-trigger="case-ai" data-reader-id="work">
+            <small>START READING</small>
+            <b>进入 02 · 项目案例</b>
+            <i aria-hidden="true">↓</i>
+          </a>
         </aside>
       </section>
 
@@ -336,7 +309,7 @@
           <p class="section-label">SELECTED WORK / 经过脱敏的项目叙述</p>
           <h2 id="work-title">Four cases,<br /><em>told as stories.</em></h2>
           <p class="work-intro__copy">
-            这里不陈列旧文件，而是重写问题、方法与判断过程。人物名单、内部截图、医学答复、患者信息与时点性商业资料均不公开。
+            这里不陈列旧文件，而是重写问题、方法与判断过程。四个案例按顺序向下排列，每篇默认收起；展开后，页尾会直接带你进入下一篇。
           </p>
           <p class="work-intro__aside">
             <span>PUBLIC ARCHIVE RULE</span>
@@ -389,7 +362,7 @@
             </aside>
           </div>
 
-          <div class="case-media case-media--ai section">
+          <div class="case-media case-media--ai case-media--research-only section">
             <figure class="research-map" aria-label="AIGC 用户采用研究变量关系示意">
               <div class="research-map__core"><strong>630</strong><span>有效样本</span></div>
               <span class="research-map__node research-map__node--one">AI 素养</span>
@@ -398,10 +371,6 @@
               <span class="research-map__node research-map__node--four">使用意愿</span>
               <figcaption>研究变量关系的编辑化示意，不表示样本占比或因果强度。</figcaption>
             </figure>
-            <figure class="case-photo case-photo--maker">
-              <img decoding="async" src="assets/photos/work-maker-day.webp?v=3" alt="Sia 在飞书 Maker Day 活动现场" loading="lazy" />
-              <figcaption><span>FROM RESEARCH TO FIELD</span>在开发者活动里，我又从真实使用场景观察：用户会怎样介绍自己做出的 AI 模板。</figcaption>
-            </figure>
           </div>
 
           <blockquote class="pullquote section">
@@ -409,7 +378,7 @@
             <small>这是本案例的研究转化命题，不是对原始统计结果的额外声称。</small>
           </blockquote>
           <div class="case-panel__footer section">
-            <button type="button" data-case-close="case-ai"><span class="return-button__copy"><small>CHAPTER COMPLETE</small>看完了，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
+            <button type="button" data-case-close="case-ai"><span class="return-button__copy"><small>CLOSE CASE</small>收起本案例</span><i aria-hidden="true">↑</i></button>
             <a class="case-next" href="#case-medical" data-case-trigger="case-medical"><span><small>NEXT CASE</small>下一篇：165 个一线问题</span><i aria-hidden="true">↓</i></a>
           </div>
           </div>
@@ -447,7 +416,7 @@
           </div>
 
           <figure class="case-wide-photo section">
-            <img decoding="async" src="assets/photos/work-medical.webp?v=3" alt="Sia 在修丽可医学教育项目现场" loading="lazy" />
+            <img decoding="async" src="assets/photos/work-medical.webp?v=4" alt="Sia 在修丽可医学教育项目现场" loading="lazy" />
             <figcaption><span>MEDICAL FIELD NOTE</span>医学教育项目现场。这里呈现的是工作场景，不公开医生名单、内部答复或诊所资料。</figcaption>
           </figure>
 
@@ -487,7 +456,7 @@
             </p>
           </figure>
           <div class="case-panel__footer section">
-            <button type="button" data-case-close="case-medical"><span class="return-button__copy"><small>CHAPTER COMPLETE</small>看完了，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
+            <button type="button" data-case-close="case-medical"><span class="return-button__copy"><small>CLOSE CASE</small>收起本案例</span><i aria-hidden="true">↑</i></button>
             <a class="case-next" href="#case-tob" data-case-trigger="case-tob"><span><small>NEXT CASE</small>下一篇：ToB 现场协同</span><i aria-hidden="true">↓</i></a>
           </div>
           </div>
@@ -516,7 +485,7 @@
 
             <div class="tob-spread section">
               <figure class="tob-spread__launch">
-                <img decoding="async" src="assets/photos/work-launch.webp?v=3" alt="飞书年度产品发布会现场" loading="lazy" />
+                <img decoding="async" src="assets/photos/work-launch.webp?v=4" alt="飞书年度产品发布会现场" loading="lazy" />
                 <figcaption><span>ENTERPRISE</span>年度产品发布会：记录现场问答，协调销售与执行团队处理变化。</figcaption>
               </figure>
               <div class="tob-spread__story prose">
@@ -524,13 +493,13 @@
                 <p>我没有负责销售签约，也不把活动规模写成个人业绩。我的角色更接近连接现场：整理信息、跟进节点、处理临时变化，并在不同受众之间切换表达。</p>
               </div>
               <figure class="tob-spread__maker">
-                <img decoding="async" src="assets/photos/work-maker-day.webp?v=3" alt="Sia 在飞书 Maker Day 活动现场" loading="lazy" />
+                <img decoding="async" src="assets/photos/work-maker-day.webp?v=4" alt="Sia 在飞书 Maker Day 活动现场" loading="lazy" />
                 <figcaption><span>DEVELOPERS</span>Maker Day：有人把自己做的模板叫“孩子”，技术产品也因此有了更具体的情感和使用场景。</figcaption>
               </figure>
             </div>
 
             <div class="case-panel__footer section">
-              <button type="button" data-case-close="case-tob"><span class="return-button__copy"><small>CHAPTER COMPLETE</small>看完了，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
+              <button type="button" data-case-close="case-tob"><span class="return-button__copy"><small>CLOSE CASE</small>收起本案例</span><i aria-hidden="true">↑</i></button>
               <a class="case-next" href="#case-partner" data-case-trigger="case-partner"><span><small>NEXT CASE</small>下一篇：品牌合作判断</span><i aria-hidden="true">↓</i></a>
             </div>
           </div>
@@ -576,11 +545,11 @@
             </div>
           </div>
           <figure class="brand-team-photo section">
-            <img decoding="async" src="assets/photos/work-brand-team.webp?v=3" alt="Sia 与修丽可品牌传播团队在欧莱雅中国办公室合影" loading="lazy" />
+            <img decoding="async" src="assets/photos/work-brand-team.webp?v=4" alt="Sia 与修丽可品牌传播团队在欧莱雅中国办公室合影" loading="lazy" />
             <figcaption><span>TEAM NOTE</span>品牌传播实习结束时的团队合照。内容结果属于团队；这里保留的是我参与判断与执行的部分。</figcaption>
           </figure>
           <div class="case-panel__footer section">
-            <button type="button" data-case-close="case-partner"><span class="return-button__copy"><small>CHAPTER COMPLETE</small>看完了，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
+            <button type="button" data-case-close="case-partner"><span class="return-button__copy"><small>CLOSE CASE</small>收起本案例</span><i aria-hidden="true">↑</i></button>
             <a class="case-next" href="#build"><span><small>NEXT CHAPTER</small>继续看：这个网站怎样与 AI 协作完成</span><i aria-hidden="true">↓</i></a>
           </div>
           </div>
@@ -611,9 +580,8 @@
         </article>
 
         <nav class="chapter-bridge chapter-bridge--dark section" aria-label="案例之后继续阅读">
-          <p><span>YOU ARE HERE</span>04–05 / 案例与 AI 实践</p>
-          <a href="#index"><small>NEXT CHAPTER</small>继续看完整经历索引 <i aria-hidden="true">↓</i></a>
-          <a href="#guestbook" class="chapter-bridge__note"><small>SHORTCUT</small>已经有想法？直接给我留言 <i aria-hidden="true">↘</i></a>
+          <p><span>YOU ARE HERE</span>02 / 项目案例与 AI 实践</p>
+          <a href="#index"><small>NEXT CHAPTER</small>进入 03 · 经历与现场 <i aria-hidden="true">↓</i></a>
         </nav>
       </section>
 
@@ -643,8 +611,8 @@
         </div>
 
         <nav class="chapter-bridge" aria-label="经历索引之后继续阅读">
-          <p><span>YOU ARE HERE</span>06 / 经历索引</p>
-          <a href="#field-notes"><small>NEXT CHAPTER</small>继续看两个现场切片 <i aria-hidden="true">↓</i></a>
+          <p><span>YOU ARE HERE</span>03 / 经历与现场 · 经历索引</p>
+          <a href="#field-notes"><small>CONTINUE</small>继续看两个现场切片 <i aria-hidden="true">↓</i></a>
         </nav>
       </section>
 
@@ -657,18 +625,18 @@
 
         <div class="field-grid field-grid--notes section">
           <figure class="field-grid__live">
-            <img decoding="async" src="assets/photos/work-livestream.webp?v=3" alt="Sia 在本科直播实践课中担任主播" loading="lazy" />
+            <img decoding="async" src="assets/photos/work-livestream.webp?v=4" alt="Sia 在本科直播实践课中担任主播" loading="lazy" />
             <figcaption><span>FIRST LIVE</span>我以为亲友只是来凑在线人数，妈妈却真的买了好几样办公用品。她说：“我本来就要用。”一两个陌生观众也意外地停留了很久。</figcaption>
           </figure>
           <figure class="field-grid__oxford">
-            <img decoding="async" src="assets/photos/study-oxford.webp?v=3" alt="Sia 在牛津大学圣安妮学院旁听医学人文学术会议" width="1200" height="1800" loading="lazy" />
+            <img decoding="async" src="assets/photos/study-oxford.webp?v=4" alt="Sia 在牛津大学圣安妮学院旁听医学人文学术会议" width="1200" height="1800" loading="lazy" />
             <figcaption><span>UNIVERSITY OF OXFORD / ATTENDEE</span>刚到英国不久，我跑去牛津大学圣安妮学院旁听了一整天医学人文会议，主题是延寿、衰老与死亡。和现场学者聊完、再听完一整天全英文讨论，收获很多，头也真的很痛。</figcaption>
           </figure>
         </div>
 
         <nav class="chapter-bridge section" aria-label="现场切片之后继续阅读">
-          <p><span>YOU ARE HERE</span>07 / 现场</p>
-          <a href="#outside"><small>NEXT CHAPTER</small>继续看工作之外的我 <i aria-hidden="true">↓</i></a>
+          <p><span>YOU ARE HERE</span>03 / 经历与现场 · 现场切片</p>
+          <a href="#outside"><small>NEXT CHAPTER</small>进入 04 · 工作之外 <i aria-hidden="true">↓</i></a>
         </nav>
       </section>
 
@@ -699,32 +667,29 @@
 
           <div class="travel-collage" aria-label="旅行照片精选">
             <figure class="travel-collage__hero">
-              <img decoding="async" src="assets/photos/travel-zakynthos.webp?v=3" alt="Sia 在希腊扎金索斯沉船湾" loading="lazy" />
+              <img decoding="async" src="assets/photos/travel-zakynthos.webp?v=4" alt="Sia 在希腊扎金索斯沉船湾" loading="lazy" />
               <figcaption>ZAKYNTHOS / GREECE</figcaption>
             </figure>
             <figure class="travel-collage__wide">
-              <img decoding="async" src="assets/photos/travel-tibet.webp?v=3" alt="Sia 在西藏山脉前张开双臂" loading="lazy" />
+              <img decoding="async" src="assets/photos/travel-tibet.webp?v=4" alt="Sia 在西藏山脉前张开双臂" loading="lazy" />
               <figcaption>TIBET / SOLO TRIP</figcaption>
             </figure>
             <figure class="travel-collage__night">
-              <img decoding="async" src="assets/photos/travel-aurora.webp?v=3" alt="特罗姆瑟夜空中的极光" loading="lazy" />
+              <img decoding="async" src="assets/photos/travel-aurora.webp?v=4" alt="特罗姆瑟夜空中的极光" loading="lazy" />
               <figcaption>TROMSØ / NORTHERN LIGHTS</figcaption>
             </figure>
             <figure class="travel-collage__detail">
-              <img decoding="async" src="assets/photos/travel-taiwan.webp?v=3" alt="台湾街边厨房里的生活场景" loading="lazy" />
+              <img decoding="async" src="assets/photos/travel-taiwan.webp?v=4" alt="台湾街边厨房里的生活场景" loading="lazy" />
               <figcaption>TAIWAN / STREET DETAIL</figcaption>
             </figure>
             <figure class="travel-collage__city">
-              <img decoding="async" src="assets/photos/travel-amsterdam.webp?v=3" alt="阿姆斯特丹运河与小船" loading="lazy" />
+              <img decoding="async" src="assets/photos/travel-amsterdam.webp?v=4" alt="阿姆斯特丹运河与小船" loading="lazy" />
               <figcaption>AMSTERDAM / A SMALL BOAT</figcaption>
             </figure>
             <figure class="travel-collage__paris">
-              <img decoding="async" src="assets/photos/travel-paris.webp?v=3" alt="Sia 在埃菲尔铁塔旁看落日" loading="lazy" />
+              <img decoding="async" src="assets/photos/travel-paris.webp?v=4" alt="Sia 在埃菲尔铁塔旁看落日" loading="lazy" />
               <figcaption>PARIS / GOLDEN HOUR</figcaption>
             </figure>
-          </div>
-          <div class="reader-return reader-return--travel">
-            <button type="button" data-return-contents data-reader-complete="travel"><span class="return-button__copy"><small>TRAVEL CHAPTER COMPLETE</small>看完旅行这一章，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
           </div>
         </article>
 
@@ -735,11 +700,11 @@
             <p>我喜欢出差，也喜欢到真实现场。不是因为坐不住，而是人、问题和判断通常都会在现场变得更具体。</p>
           </div>
           <figure class="movement__ride">
-            <img decoding="async" src="assets/photos/active-riding.webp?v=3" alt="Sia 在伦敦骑马" loading="lazy" />
+            <img decoding="async" src="assets/photos/active-riding.webp?v=4" alt="Sia 在伦敦骑马" loading="lazy" />
             <figcaption>RIDING / LONDON</figcaption>
           </figure>
           <figure class="movement__flight">
-            <img decoding="async" src="assets/photos/active-paragliding.webp?v=3" alt="Sia 在瑞士体验滑翔伞" loading="lazy" />
+            <img decoding="async" src="assets/photos/active-paragliding.webp?v=4" alt="Sia 在瑞士体验滑翔伞" loading="lazy" />
             <figcaption>PARAGLIDING / SWITZERLAND</figcaption>
           </figure>
         </article>
@@ -766,7 +731,7 @@
             </summary>
             <div class="personal-column__body">
               <figure class="personal-column__stage">
-                <img decoding="async" src="assets/photos/school-stage.webp?v=3" alt="2019 年的 Sia 在学校舞台上主持活动" loading="lazy" />
+                <img decoding="async" src="assets/photos/school-stage.webp?v=4" alt="2019 年的 Sia 在学校舞台上主持活动" loading="lazy" />
                 <figcaption>2019 / 还没开始改变时，我已经很敢上台。</figcaption>
               </figure>
               <div class="personal-column__story">
@@ -777,16 +742,13 @@
                 <p>这段经历没有把过去的我变成一个应该被否定的版本。它真正留下的是对身体选择权的掌握、对反复的耐心，以及一个现在仍然保留的小秘密：当前体重不公开。</p>
               </div>
               <p class="personal-column__boundary">这里不提供减重方法，也不把外貌变化写成一则“逆袭神话”。</p>
-              <div class="reader-return reader-return--personal">
-                <button type="button" data-return-contents data-reader-complete="myself"><span class="return-button__copy"><small>PERSONAL NOTE COMPLETE</small>看完这段故事，回到五个 Sia 的目录</span><i aria-hidden="true">↑</i></button>
-              </div>
             </div>
           </details>
         </aside>
 
         <nav class="chapter-bridge chapter-bridge--wine section" aria-label="生活章节之后继续阅读">
-          <p><span>YOU ARE HERE</span>08 / 工作之外</p>
-          <a href="#contact"><small>NEXT CHAPTER</small>联系我，或者留下一句话 <i aria-hidden="true">↓</i></a>
+          <p><span>YOU ARE HERE</span>04 / 工作之外</p>
+          <a href="#contact"><small>NEXT CHAPTER</small>进入 05 · 联系与留言 <i aria-hidden="true">↓</i></a>
         </nav>
       </section>
 
@@ -879,6 +841,6 @@
       }
     </script>
     <script src="config.js?v=2"></script>
-    <script src="script.js?v=7" defer></script>
+    <script src="script.js?v=9" defer></script>
   </body>
 </html>

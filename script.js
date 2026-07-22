@@ -95,7 +95,7 @@ const caseTriggers = [...document.querySelectorAll("[data-case-trigger]")];
 const caseCloseButtons = [...document.querySelectorAll("[data-case-close]")];
 const readerLinks = [...document.querySelectorAll("[data-reader-id]")];
 const readCount = document.querySelector("[data-read-count]");
-const readerStorageKey = "sia-portfolio-read-v1";
+const readerStorageKey = "sia-portfolio-read-v2";
 let visitedReaders = new Set();
 
 try {
@@ -121,8 +121,8 @@ function renderReaderState() {
     const arrow = link.querySelector("[data-reader-arrow]");
 
     link.classList.toggle("is-visited", Boolean(isVisited));
-    if (label) label.textContent = isActive ? "正在阅读" : isVisited ? "已读 · 再看" : "查看";
-    if (arrow) arrow.textContent = isActive ? "×" : isVisited ? "↺" : "↘";
+    if (label) label.textContent = isVisited ? "已访问 · 再看" : "快速跳转";
+    if (arrow) arrow.textContent = isVisited ? "↺" : "↓";
   });
 
   if (readCount) {
@@ -180,7 +180,7 @@ caseToggles.forEach((toggle) => {
     const caseId = toggle.dataset.caseToggle;
     if (!caseId) return;
     const shouldOpen = toggle.getAttribute("aria-expanded") !== "true";
-    if (shouldOpen && readerLinks.some((link) => link.dataset.readerId === caseId)) markReaderVisited(caseId);
+    if (shouldOpen) markReaderVisited("work");
     setCaseState(caseId, shouldOpen);
   });
 });
@@ -195,16 +195,9 @@ caseTriggers.forEach((trigger) => {
   trigger.addEventListener("click", (event) => {
     if (!caseId) return;
     event.preventDefault();
-    markReaderVisited(trigger.dataset.readerId || caseId);
-    const { toggle } = getCaseParts(caseId);
-    const shouldOpen = toggle?.getAttribute("aria-expanded") !== "true";
-    setCaseState(caseId, shouldOpen, { scrollToCase: shouldOpen });
-    if (shouldOpen) {
-      history.replaceState(null, "", `#${caseId}`);
-    } else {
-      document.getElementById("contents")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      history.replaceState(null, "", "#contents");
-    }
+    markReaderVisited(trigger.dataset.readerId || "work");
+    setCaseState(caseId, true, { scrollToCase: true });
+    history.replaceState(null, "", `#${caseId}`);
   });
 });
 
@@ -234,21 +227,13 @@ document.querySelectorAll("[data-details-trigger]").forEach((trigger) => {
   });
 });
 
-document.querySelectorAll("[data-return-contents]").forEach((button) => {
-  button.addEventListener("click", () => {
-    markReaderVisited(button.dataset.readerComplete);
-    document.getElementById("contents")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    history.replaceState(null, "", "#contents");
-  });
-});
-
 caseCloseButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const caseId = button.dataset.caseClose;
     if (!caseId) return;
     setCaseState(caseId, false, { closeOthers: false });
-    document.getElementById("contents")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    history.replaceState(null, "", "#contents");
+    document.getElementById(caseId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", `#${caseId}`);
   });
 });
 
@@ -280,6 +265,7 @@ surpriseButton?.addEventListener("click", () => {
 
 const initialCaseId = window.location.hash.slice(1);
 if (["case-ai", "case-medical", "case-tob", "case-partner"].includes(initialCaseId)) {
+  markReaderVisited("work");
   setCaseState(initialCaseId, true, { closeOthers: false });
 }
 
@@ -545,9 +531,6 @@ const routeLinks = [...document.querySelectorAll("[data-route-link]")];
 const routeTargets = routeLinks
   .map((link) => ({ link, target: document.getElementById(link.dataset.routeLink) }))
   .filter((item) => item.target);
-const floatingDirectory = document.querySelector("[data-floating-directory]");
-const contentsSection = document.getElementById("contents");
-const guestbookSection = document.getElementById("guestbook");
 let currentRouteId = "";
 let routeFrame = 0;
 
@@ -570,13 +553,9 @@ function updateReadingRoute() {
       if (isCurrent) link.setAttribute("aria-current", "location");
       else link.removeAttribute("aria-current");
     });
-  }
-
-  if (floatingDirectory && contentsSection && guestbookSection) {
-    const contentsEnd = contentsSection.getBoundingClientRect().bottom + window.scrollY;
-    const guestbookStart = guestbookSection.getBoundingClientRect().top + window.scrollY;
-    const shouldShow = window.scrollY > contentsEnd - window.innerHeight * 0.25 && window.scrollY < guestbookStart - window.innerHeight * 0.35;
-    floatingDirectory.classList.toggle("is-visible", shouldShow);
+    if (readerLinks.some((link) => link.dataset.readerId === currentRouteId)) {
+      markReaderVisited(currentRouteId);
+    }
   }
 }
 
