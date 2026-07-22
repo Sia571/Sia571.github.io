@@ -5142,6 +5142,210 @@ html {
   min-height: 6.2rem;
 }
 
+/* V11: a consistent case directory and a clearly labelled experience index */
+
+#case-directory {
+  scroll-margin-top: 5.5rem;
+}
+
+.case-directory {
+  padding-top: clamp(1.5rem, 3vw, 3rem);
+  padding-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.case-directory__heading {
+  display: grid;
+  grid-template-columns: 1.2fr 5fr;
+  gap: clamp(1.5rem, 4vw, 5rem);
+  align-items: start;
+  margin-bottom: clamp(1.5rem, 3vw, 2.75rem);
+}
+
+.case-directory__heading > p:last-child {
+  max-width: 45rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--display);
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  line-height: 1.55;
+}
+
+.case-directory__list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.case-directory__list a {
+  display: grid;
+  grid-template-columns: minmax(8rem, 1.05fr) minmax(13rem, 2.2fr) minmax(12rem, 2.7fr) auto;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  align-items: center;
+  min-height: 6.5rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: color 160ms ease, background-color 160ms ease, padding 160ms ease;
+}
+
+.case-directory__list a > span {
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.case-directory__list a > strong {
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.case-directory__list a > small {
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+
+.case-directory__list a > i {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-family: var(--display);
+  font-style: normal;
+}
+
+.case-directory__list a:hover,
+.case-directory__list a:focus-visible,
+.case-directory__list a.is-active {
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  color: var(--paper);
+  background: var(--wine);
+}
+
+.case-directory__list a:hover small,
+.case-directory__list a:focus-visible small,
+.case-directory__list a.is-active small {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.case-directory__list a.is-visited:not(.is-active) {
+  color: #8b847a;
+  background: rgba(46, 52, 49, 0.035);
+}
+
+.case-directory__list a.is-visited:not(.is-active) > span::after {
+  content: " · 已读";
+  color: var(--wine);
+}
+
+.case-panel__footer button,
+.case-panel__footer .case-next {
+  flex: 1 1 19rem;
+  max-width: 30rem;
+}
+
+.index-list article {
+  grid-template-columns: minmax(9rem, 1.1fr) minmax(18rem, 2.6fr) minmax(16rem, 2.4fr);
+  grid-template-areas:
+    "label title description"
+    "label meta description";
+  align-items: start;
+}
+
+.index-list article > p {
+  grid-area: label;
+}
+
+.index-list article > h3 {
+  grid-area: title;
+}
+
+.index-list article > small {
+  grid-area: meta;
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--wine);
+  font-size: 0.58rem;
+  font-weight: 650;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+}
+
+.index-list article > span {
+  grid-area: description;
+  line-height: 1.65;
+}
+
+@media (max-width: 1000px) {
+  .case-directory__list a {
+    grid-template-columns: minmax(7rem, 0.9fr) minmax(0, 2.2fr) auto;
+  }
+
+  .case-directory__list a > small {
+    grid-column: 2;
+  }
+
+  .case-directory__list a > i {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+
+  .index-list article {
+    grid-template-columns: minmax(8rem, 0.75fr) minmax(0, 2fr);
+    grid-template-areas:
+      "label title"
+      "label meta"
+      ". description";
+  }
+}
+
+@media (max-width: 620px) {
+  #case-directory {
+    scroll-margin-top: 4.75rem;
+  }
+
+  .case-directory__heading {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .case-directory__list a {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.35rem 1rem;
+    min-height: 0;
+    padding: 1.25rem 0;
+  }
+
+  .case-directory__list a > span,
+  .case-directory__list a > strong,
+  .case-directory__list a > small {
+    grid-column: 1;
+  }
+
+  .case-directory__list a > i {
+    grid-column: 2;
+    grid-row: 1 / 4;
+  }
+
+  .index-list article {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "label"
+      "title"
+      "meta"
+      "description";
+    gap: 0.35rem;
+  }
+
+  .case-panel__footer button,
+  .case-panel__footer .case-next {
+    width: 100%;
+    max-width: none;
+  }
+}
+
 @media (max-width: 1000px) {
   .contents-list--visual a {
     grid-template-columns: 0.4fr minmax(0, 2.7fr) minmax(7rem, 1fr) auto;

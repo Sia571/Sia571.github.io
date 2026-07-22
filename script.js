@@ -1,10 +1,6 @@
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".site-nav");
 
-const aiCase = document.getElementById("case-ai");
-const medicalCase = document.getElementById("case-medical");
-if (aiCase && medicalCase) medicalCase.before(aiCase);
-
 function closeMenu() {
   if (!menuButton || !navigation) return;
   menuButton.setAttribute("aria-expanded", "false");
@@ -92,16 +88,25 @@ processButtons.forEach((button, index) => {
 
 const caseToggles = [...document.querySelectorAll("[data-case-toggle]")];
 const caseTriggers = [...document.querySelectorAll("[data-case-trigger]")];
-const caseCloseButtons = [...document.querySelectorAll("[data-case-close]")];
+const caseReturnButtons = [...document.querySelectorAll("[data-case-return]")];
+const caseDirectoryLinks = [...document.querySelectorAll("[data-case-directory]")];
 const readerLinks = [...document.querySelectorAll("[data-reader-id]")];
 const readCount = document.querySelector("[data-read-count]");
 const readerStorageKey = "sia-portfolio-read-v2";
+const caseStorageKey = "sia-portfolio-cases-v1";
 let visitedReaders = new Set();
+let visitedCases = new Set();
 
 try {
   visitedReaders = new Set(JSON.parse(window.localStorage.getItem(readerStorageKey) || "[]"));
 } catch (_error) {
   visitedReaders = new Set();
+}
+
+try {
+  visitedCases = new Set(JSON.parse(window.localStorage.getItem(caseStorageKey) || "[]"));
+} catch (_error) {
+  visitedCases = new Set();
 }
 
 function saveReaderState() {
@@ -129,6 +134,27 @@ function renderReaderState() {
     const ids = new Set(readerLinks.map((link) => link.dataset.readerId).filter(Boolean));
     readCount.textContent = String([...ids].filter((id) => visitedReaders.has(id)).length);
   }
+}
+
+function renderCaseDirectoryState() {
+  caseDirectoryLinks.forEach((link) => {
+    const caseId = link.dataset.caseDirectory;
+    const isVisited = caseId && visitedCases.has(caseId);
+    link.classList.toggle("is-visited", Boolean(isVisited));
+    const icon = link.querySelector("i");
+    if (icon) icon.textContent = isVisited ? "↺" : "↓";
+  });
+}
+
+function markCaseVisited(caseId) {
+  if (!caseId) return;
+  visitedCases.add(caseId);
+  try {
+    window.localStorage.setItem(caseStorageKey, JSON.stringify([...visitedCases]));
+  } catch (_error) {
+    // Visited styling is optional; navigation still works without local storage.
+  }
+  renderCaseDirectoryState();
 }
 
 function markReaderVisited(readerId) {
@@ -160,6 +186,8 @@ function setCaseState(caseId, shouldOpen, options = {}) {
   toggle.querySelector("span").textContent = shouldOpen ? "收起案例" : "展开案例";
   panel.hidden = !shouldOpen;
   article.classList.toggle("is-open", shouldOpen);
+
+  if (shouldOpen) markCaseVisited(caseId);
 
   caseTriggers
     .filter((trigger) => trigger.dataset.caseTrigger === caseId)
@@ -227,13 +255,15 @@ document.querySelectorAll("[data-details-trigger]").forEach((trigger) => {
   });
 });
 
-caseCloseButtons.forEach((button) => {
+caseReturnButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const caseId = button.dataset.caseClose;
+    const caseId = button.dataset.caseReturn;
     if (!caseId) return;
     setCaseState(caseId, false, { closeOthers: false });
-    document.getElementById(caseId)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    history.replaceState(null, "", `#${caseId}`);
+    const directory = document.getElementById("case-directory");
+    directory?.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", "#case-directory");
+    window.setTimeout(() => directory?.querySelector(`[data-case-directory="${caseId}"]`)?.focus(), 450);
   });
 });
 
@@ -275,6 +305,7 @@ if (initialCaseId === "myself") {
 }
 
 renderReaderState();
+renderCaseDirectoryState();
 
 const guestbookForm = document.querySelector("[data-guestbook-form]");
 const messageDialog = document.querySelector("[data-message-dialog]");
