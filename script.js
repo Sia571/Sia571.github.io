@@ -98,25 +98,18 @@ document.querySelectorAll("dialog").forEach((dialog) => {
 });
 
 const longformDialog = document.querySelector("[data-longform-dialog]");
-const formatImage = document.querySelector("[data-format-image]");
-const formatSource = document.querySelector("[data-format-source]");
+const formatFrame = document.querySelector("[data-format-frame]");
+const formatPictures = [...document.querySelectorAll("[data-format-picture]")];
 const formatCaption = document.querySelector("[data-format-caption]");
-const longformImage = document.querySelector("[data-longform-image]");
-const longformSource = document.querySelector("[data-longform-source]");
+const longformPictures = [...document.querySelectorAll("[data-longform-picture]")];
 let currentLongformView = "current";
 const longformViews = {
   earlier: {
-    src: "assets/optimized/cerave-longform-earlier-840.webp",
-    srcset: "assets/optimized/cerave-longform-earlier-540.webp 540w, assets/optimized/cerave-longform-earlier-840.webp 840w, assets/cerave-longform-earlier.jpg 1080w",
-    avifSrcset: "assets/optimized/cerave-longform-earlier-540.avif 540w, assets/optimized/cerave-longform-earlier-840.avif 840w, assets/optimized/cerave-longform-earlier-1080.avif 1080w",
-    alt: "此前适乐肤医学传播长图文，以完整指南与专业信息为主要阅读路径",
+    mobileAvifSrcset: "assets/optimized/cerave-longform-earlier-640.avif 640w",
     caption: "<span>EARLIER FORMAT</span>从指南和完整专业信息开始，适合系统阅读，但在社交信息流里需要读者先投入较多注意力。",
   },
   current: {
-    src: "assets/optimized/cerave-longform-840.webp",
-    srcset: "assets/optimized/cerave-longform-540.webp 540w, assets/optimized/cerave-longform-840.webp 840w, assets/cerave-longform.jpg 1080w",
-    avifSrcset: "assets/optimized/cerave-longform-540.avif 540w, assets/optimized/cerave-longform-840.avif 840w, assets/optimized/cerave-longform-1080.avif 1080w",
-    alt: "本次适乐肤医学传播长图文，以患者场景作为内容入口",
+    mobileAvifSrcset: "assets/optimized/cerave-longform-640.avif 640w",
     caption: "<span>CURRENT APPROACH</span>从患者在门诊会怎么问开始，先建立共鸣，再解释研究设计、指标变化与日常沟通。",
   },
 };
@@ -149,12 +142,15 @@ function warmMobileImageCache() {
   });
 
   const candidates = [
-    { srcset: longformViews.current.avifSrcset, sizes: "100vw", priority: "high" },
-    { srcset: longformViews.earlier.avifSrcset, sizes: "100vw", priority: "high" },
+    { srcset: longformViews.current.mobileAvifSrcset, sizes: "100vw", priority: "high" },
+    { srcset: longformViews.earlier.mobileAvifSrcset, sizes: "100vw", priority: "high" },
   ];
 
-  document.querySelectorAll('picture source[type="image/avif"]').forEach((source) => {
-    const image = source.closest("picture")?.querySelector("img");
+  document.querySelectorAll("picture").forEach((picture) => {
+    const source = [...picture.querySelectorAll('source[type="image/avif"]')]
+      .find((item) => !item.media || window.matchMedia(item.media).matches);
+    const image = picture.querySelector("img");
+    if (!source) return;
     if (!image || image.fetchPriority === "high") return;
     candidates.push({
       srcset: source.srcset,
@@ -181,24 +177,20 @@ window.addEventListener("load", beginMobileImageWarmup, { once: true });
 function setLongformView(view) {
   const next = longformViews[view] || longformViews.current;
   currentLongformView = longformViews[view] ? view : "current";
-  if (formatImage) {
-    if (formatSource) formatSource.srcset = next.avifSrcset;
-    formatImage.src = next.src;
-    formatImage.srcset = next.srcset;
-    formatImage.alt = next.alt;
-    formatImage.closest("div").scrollTop = 0;
-  }
+  formatPictures.forEach((picture) => {
+    const active = picture.dataset.formatPicture === currentLongformView;
+    picture.hidden = !active;
+    picture.setAttribute("aria-hidden", String(!active));
+  });
+  if (formatFrame) formatFrame.scrollTop = 0;
   if (formatCaption) formatCaption.innerHTML = next.caption;
-  if (longformImage) {
-    if (longformSource) longformSource.srcset = next.avifSrcset;
-    longformImage.loading = "eager";
-    longformImage.fetchPriority = "high";
-    longformImage.src = next.src;
-    longformImage.srcset = next.srcset;
-    longformImage.alt = `${next.alt}完整版本`;
-  }
+  longformPictures.forEach((picture) => {
+    const active = picture.dataset.longformPicture === currentLongformView;
+    picture.hidden = !active;
+    picture.setAttribute("aria-hidden", String(!active));
+  });
   document.querySelectorAll("[data-format-view], [data-longform-view]").forEach((button) => {
-    const active = button.dataset.formatView === view || button.dataset.longformView === view;
+    const active = button.dataset.formatView === currentLongformView || button.dataset.longformView === currentLongformView;
     button.classList.toggle("is-active", active);
     button.setAttribute("aria-pressed", String(active));
   });
