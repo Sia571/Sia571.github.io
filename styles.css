@@ -346,6 +346,8 @@ figcaption span { display: block; color: var(--ink); font-size: .62rem; font-wei
 .format-switch button.is-active, .longform-dialog__switch button.is-active { background: var(--ink); color: white; }
 .format-viewport { margin: 0; }
 .format-viewport > div { height: 560px; overflow-y: auto; background: white; border: 1px solid var(--line); scrollbar-color: var(--wine) white; }
+.format-viewport [data-format-picture], .longform-dialog__picture { display: block; }
+[data-format-picture][hidden], [data-longform-picture][hidden] { display: none !important; }
 .format-viewport img { width: 100%; }
 .format-viewport figcaption { max-width: 720px; }
 .format-viewport figcaption span { margin-bottom: 3px; color: var(--wine); }

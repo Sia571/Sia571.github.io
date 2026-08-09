@@ -11,8 +11,10 @@
     <meta property="og:description" content="I turn complex ideas into things people can understand, trust and act on." />
     <link rel="icon" href="data:," />
     <link rel="preload" as="image" href="assets/optimized/portrait-aquarium-800.avif" type="image/avif" imagesrcset="assets/optimized/portrait-aquarium-480.avif 480w, assets/optimized/portrait-aquarium-800.avif 800w, assets/optimized/portrait-aquarium-1200.avif 1200w" imagesizes="(max-width: 720px) 90vw, (max-width: 1050px) 330px, 32vw" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/optimized/cerave-longform-640.avif" type="image/avif" media="(max-width: 860px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/optimized/cerave-longform-earlier-640.avif" type="image/avif" media="(max-width: 860px)" />
     <title>张思辰 Sia Zhang｜Work, Research &amp; Field Notes</title>
-    <link rel="stylesheet" href="styles.css?v=5" />
+    <link rel="stylesheet" href="styles.css?v=6" />
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要内容</a>
@@ -273,7 +275,20 @@
                 <button type="button" data-format-view="current" class="is-active" aria-pressed="true">本次方案</button>
               </div>
               <figure class="format-viewport">
-                <div><picture><source data-format-source type="image/avif" srcset="assets/optimized/cerave-longform-540.avif 540w, assets/optimized/cerave-longform-840.avif 840w, assets/optimized/cerave-longform-1080.avif 1080w" sizes="(max-width: 860px) 100vw, 52vw" /><img data-format-image src="assets/optimized/cerave-longform-840.webp" srcset="assets/optimized/cerave-longform-540.webp 540w, assets/optimized/cerave-longform-840.webp 840w, assets/cerave-longform.jpg 1080w" sizes="(max-width: 860px) 100vw, 52vw" alt="本次适乐肤医学传播长图文，以患者场景作为内容入口" width="1080" height="6939" loading="lazy" decoding="async" fetchpriority="low" /></picture></div>
+                <div data-format-frame>
+                  <picture data-format-picture="current">
+                    <source media="(max-width: 860px)" type="image/avif" srcset="assets/optimized/cerave-longform-640.avif" />
+                    <source type="image/avif" srcset="assets/optimized/cerave-longform-640.avif 640w, assets/optimized/cerave-longform-840.avif 840w, assets/optimized/cerave-longform-1080.avif 1080w" sizes="(max-width: 860px) 100vw, 52vw" />
+                    <source media="(max-width: 860px)" type="image/webp" srcset="assets/optimized/cerave-longform-640.webp" />
+                    <img src="assets/optimized/cerave-longform-840.webp" srcset="assets/optimized/cerave-longform-640.webp 640w, assets/optimized/cerave-longform-840.webp 840w, assets/cerave-longform.jpg 1080w" sizes="(max-width: 860px) 100vw, 52vw" alt="本次适乐肤医学传播长图文，以患者场景作为内容入口" width="1080" height="6939" loading="eager" decoding="async" fetchpriority="high" />
+                  </picture>
+                  <picture data-format-picture="earlier" hidden aria-hidden="true">
+                    <source media="(max-width: 860px)" type="image/avif" srcset="assets/optimized/cerave-longform-earlier-640.avif" />
+                    <source type="image/avif" srcset="assets/optimized/cerave-longform-earlier-640.avif 640w, assets/optimized/cerave-longform-earlier-840.avif 840w, assets/optimized/cerave-longform-earlier-1080.avif 1080w" sizes="(max-width: 860px) 100vw, 52vw" />
+                    <source media="(max-width: 860px)" type="image/webp" srcset="assets/optimized/cerave-longform-earlier-640.webp" />
+                    <img src="assets/optimized/cerave-longform-earlier-840.webp" srcset="assets/optimized/cerave-longform-earlier-640.webp 640w, assets/optimized/cerave-longform-earlier-840.webp 840w, assets/cerave-longform-earlier.jpg 1080w" sizes="(max-width: 860px) 100vw, 52vw" alt="此前适乐肤医学传播长图文，以完整指南与专业信息为主要阅读路径" width="1080" height="7304" loading="eager" decoding="async" fetchpriority="high" />
+                  </picture>
+                </div>
                 <figcaption data-format-caption><span>CURRENT APPROACH</span>从患者在门诊会怎么问开始，先建立共鸣，再解释研究设计、指标变化与日常沟通。</figcaption>
               </figure>
               <div class="format-comparison" aria-label="传播形式变化">
@@ -503,7 +518,18 @@
         <button type="button" data-longform-view="earlier" aria-pressed="false">此前形式</button>
         <button type="button" data-longform-view="current" class="is-active" aria-pressed="true">本次方案</button>
       </div>
-      <picture class="longform-dialog__picture"><source data-longform-source type="image/avif" srcset="assets/optimized/cerave-longform-540.avif 540w, assets/optimized/cerave-longform-840.avif 840w, assets/optimized/cerave-longform-1080.avif 1080w" sizes="(max-width: 900px) 100vw, 720px" /><img data-longform-image src="assets/optimized/cerave-longform-840.webp" srcset="assets/optimized/cerave-longform-540.webp 540w, assets/optimized/cerave-longform-840.webp 840w, assets/cerave-longform.jpg 1080w" sizes="(max-width: 900px) 100vw, 720px" alt="本次适乐肤医学传播长图文完整版本" width="1080" height="6939" loading="lazy" decoding="async" /></picture>
+      <picture class="longform-dialog__picture" data-longform-picture="current">
+        <source media="(max-width: 860px)" type="image/avif" srcset="assets/optimized/cerave-longform-640.avif" />
+        <source type="image/avif" srcset="assets/optimized/cerave-longform-640.avif 640w, assets/optimized/cerave-longform-840.avif 840w, assets/optimized/cerave-longform-1080.avif 1080w" sizes="(max-width: 900px) 100vw, 720px" />
+        <source media="(max-width: 860px)" type="image/webp" srcset="assets/optimized/cerave-longform-640.webp" />
+        <img src="assets/optimized/cerave-longform-840.webp" srcset="assets/optimized/cerave-longform-640.webp 640w, assets/optimized/cerave-longform-840.webp 840w, assets/cerave-longform.jpg 1080w" sizes="(max-width: 900px) 100vw, 720px" alt="本次适乐肤医学传播长图文完整版本" width="1080" height="6939" loading="eager" decoding="async" />
+      </picture>
+      <picture class="longform-dialog__picture" data-longform-picture="earlier" hidden aria-hidden="true">
+        <source media="(max-width: 860px)" type="image/avif" srcset="assets/optimized/cerave-longform-earlier-640.avif" />
+        <source type="image/avif" srcset="assets/optimized/cerave-longform-earlier-640.avif 640w, assets/optimized/cerave-longform-earlier-840.avif 840w, assets/optimized/cerave-longform-earlier-1080.avif 1080w" sizes="(max-width: 900px) 100vw, 720px" />
+        <source media="(max-width: 860px)" type="image/webp" srcset="assets/optimized/cerave-longform-earlier-640.webp" />
+        <img src="assets/optimized/cerave-longform-earlier-840.webp" srcset="assets/optimized/cerave-longform-earlier-640.webp 640w, assets/optimized/cerave-longform-earlier-840.webp 840w, assets/cerave-longform-earlier.jpg 1080w" sizes="(max-width: 900px) 100vw, 720px" alt="此前适乐肤医学传播长图文完整版本" width="1080" height="7304" loading="eager" decoding="async" />
+      </picture>
     </dialog>
 
     <dialog class="message-dialog" data-message-dialog aria-labelledby="message-dialog-title">
@@ -519,6 +545,6 @@
     </script>
     <script src="config.js?v=3"></script>
     <script src="mini-evidence-data.js?v=5"></script>
-    <script src="script.js?v=7" defer></script>
+    <script src="script.js?v=8" defer></script>
   </body>
 </html>
