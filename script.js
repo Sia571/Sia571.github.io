@@ -121,6 +121,63 @@ const longformViews = {
   },
 };
 
+const mobileImageWarmers = new Set();
+let mobileImageWarmupStarted = false;
+
+function warmImageCandidate({ srcset, sizes = "100vw", priority = "auto" }) {
+  if (!srcset) return;
+  const image = new Image();
+  const firstCandidate = srcset.split(",")[0]?.trim().split(/\s+/)[0];
+  image.decoding = "async";
+  image.fetchPriority = priority;
+  image.sizes = sizes;
+  image.srcset = srcset;
+  if (firstCandidate) image.src = firstCandidate;
+  const release = () => mobileImageWarmers.delete(image);
+  image.addEventListener("load", release, { once: true });
+  image.addEventListener("error", release, { once: true });
+  mobileImageWarmers.add(image);
+}
+
+function warmMobileImageCache() {
+  if (mobileImageWarmupStarted || !window.matchMedia("(max-width: 860px)").matches) return;
+  mobileImageWarmupStarted = true;
+
+  document.querySelectorAll('img[loading="lazy"]').forEach((image, index) => {
+    image.loading = "eager";
+    image.fetchPriority = index < 2 ? "high" : "auto";
+  });
+
+  const candidates = [
+    { srcset: longformViews.current.avifSrcset, sizes: "100vw", priority: "high" },
+    { srcset: longformViews.earlier.avifSrcset, sizes: "100vw", priority: "high" },
+  ];
+
+  document.querySelectorAll('picture source[type="image/avif"]').forEach((source) => {
+    const image = source.closest("picture")?.querySelector("img");
+    if (!image || image.fetchPriority === "high") return;
+    candidates.push({
+      srcset: source.srcset,
+      sizes: source.sizes || image.sizes || "100vw",
+      priority: candidates.length < 4 ? "high" : "auto",
+    });
+  });
+
+  const seen = new Set();
+  candidates.forEach((candidate) => {
+    const key = candidate.srcset;
+    if (seen.has(key)) return;
+    seen.add(key);
+    warmImageCandidate(candidate);
+  });
+}
+
+const leadImage = document.querySelector('img[fetchpriority="high"]');
+const beginMobileImageWarmup = () => window.setTimeout(warmMobileImageCache, 0);
+if (leadImage?.complete) beginMobileImageWarmup();
+else leadImage?.addEventListener("load", beginMobileImageWarmup, { once: true });
+window.addEventListener("load", beginMobileImageWarmup, { once: true });
+
 function setLongformView(view) {
   const next = longformViews[view] || longformViews.current;
   currentLongformView = longformViews[view] ? view : "current";
@@ -134,6 +191,8 @@ function setLongformView(view) {
   if (formatCaption) formatCaption.innerHTML = next.caption;
   if (longformImage) {
     if (longformSource) longformSource.srcset = next.avifSrcset;
+    longformImage.loading = "eager";
+    longformImage.fetchPriority = "high";
     longformImage.src = next.src;
     longformImage.srcset = next.srcset;
     longformImage.alt = `${next.alt}完整版本`;
