@@ -99,17 +99,23 @@ document.querySelectorAll("dialog").forEach((dialog) => {
 
 const longformDialog = document.querySelector("[data-longform-dialog]");
 const formatImage = document.querySelector("[data-format-image]");
+const formatSource = document.querySelector("[data-format-source]");
 const formatCaption = document.querySelector("[data-format-caption]");
 const longformImage = document.querySelector("[data-longform-image]");
+const longformSource = document.querySelector("[data-longform-source]");
 let currentLongformView = "current";
 const longformViews = {
   earlier: {
-    src: "assets/cerave-longform-earlier.jpg",
+    src: "assets/optimized/cerave-longform-earlier-840.webp",
+    srcset: "assets/optimized/cerave-longform-earlier-540.webp 540w, assets/optimized/cerave-longform-earlier-840.webp 840w, assets/cerave-longform-earlier.jpg 1080w",
+    avifSrcset: "assets/optimized/cerave-longform-earlier-540.avif 540w, assets/optimized/cerave-longform-earlier-840.avif 840w, assets/optimized/cerave-longform-earlier-1080.avif 1080w",
     alt: "此前适乐肤医学传播长图文，以完整指南与专业信息为主要阅读路径",
     caption: "<span>EARLIER FORMAT</span>从指南和完整专业信息开始，适合系统阅读，但在社交信息流里需要读者先投入较多注意力。",
   },
   current: {
-    src: "assets/cerave-longform.jpg",
+    src: "assets/optimized/cerave-longform-840.webp",
+    srcset: "assets/optimized/cerave-longform-540.webp 540w, assets/optimized/cerave-longform-840.webp 840w, assets/cerave-longform.jpg 1080w",
+    avifSrcset: "assets/optimized/cerave-longform-540.avif 540w, assets/optimized/cerave-longform-840.avif 840w, assets/optimized/cerave-longform-1080.avif 1080w",
     alt: "本次适乐肤医学传播长图文，以患者场景作为内容入口",
     caption: "<span>CURRENT APPROACH</span>从患者在门诊会怎么问开始，先建立共鸣，再解释研究设计、指标变化与日常沟通。",
   },
@@ -119,13 +125,17 @@ function setLongformView(view) {
   const next = longformViews[view] || longformViews.current;
   currentLongformView = longformViews[view] ? view : "current";
   if (formatImage) {
+    if (formatSource) formatSource.srcset = next.avifSrcset;
     formatImage.src = next.src;
+    formatImage.srcset = next.srcset;
     formatImage.alt = next.alt;
     formatImage.closest("div").scrollTop = 0;
   }
   if (formatCaption) formatCaption.innerHTML = next.caption;
   if (longformImage) {
+    if (longformSource) longformSource.srcset = next.avifSrcset;
     longformImage.src = next.src;
+    longformImage.srcset = next.srcset;
     longformImage.alt = `${next.alt}完整版本`;
   }
   document.querySelectorAll("[data-format-view], [data-longform-view]").forEach((button) => {
