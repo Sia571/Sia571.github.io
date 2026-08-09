@@ -114,76 +114,68 @@ const longformViews = {
   },
 };
 
-const mobileImageWarmers = new Set();
-let mobileImageWarmupStarted = false;
+const mobilePhotos = [...document.querySelectorAll('img[loading="lazy"]')];
+let mobilePhotoObserver;
+let mobilePhotoWarmupStarted = false;
 
-function warmImageCandidate({ srcset, sizes = "100vw", priority = "auto" }) {
-  if (!srcset) return Promise.resolve();
+function promoteMobilePhoto(image, priority = "auto") {
+  if (!image) return;
+  image.loading = "eager";
+  image.fetchPriority = priority;
+}
+
+function waitForImage(image) {
+  if (!image || (image.complete && image.naturalWidth > 0)) return Promise.resolve();
   return new Promise((resolve) => {
-    const image = new Image();
-    const firstCandidate = srcset.split(",")[0]?.trim().split(/\s+/)[0];
-    image.decoding = "async";
-    image.fetchPriority = priority;
-    image.sizes = sizes;
-    image.srcset = srcset;
-    if (firstCandidate) image.src = firstCandidate;
-    const release = () => {
-      mobileImageWarmers.delete(image);
-      resolve();
-    };
-    image.addEventListener("load", release, { once: true });
-    image.addEventListener("error", release, { once: true });
-    mobileImageWarmers.add(image);
+    image.addEventListener("load", resolve, { once: true });
+    image.addEventListener("error", resolve, { once: true });
   });
 }
 
-async function warmMobileImageCache() {
-  if (mobileImageWarmupStarted || !window.matchMedia("(max-width: 860px)").matches) return;
-  mobileImageWarmupStarted = true;
+function prepareMobilePhotoLoading() {
+  if (!window.matchMedia("(max-width: 860px)").matches) return;
 
-  document.querySelectorAll('img[loading="lazy"]').forEach((image) => {
+  mobilePhotos.forEach((image) => {
     image.fetchPriority = "auto";
   });
 
-  const candidates = [
-    { srcset: longformViews.current.mobileAvifSrcset, sizes: "100vw", priority: "high" },
-    { srcset: longformViews.earlier.mobileAvifSrcset, sizes: "100vw", priority: "high" },
-  ];
-
-  document.querySelectorAll("picture").forEach((picture) => {
-    const source = [...picture.querySelectorAll('source[type="image/avif"]')]
-      .find((item) => !item.media || window.matchMedia(item.media).matches);
-    const image = picture.querySelector("img");
-    if (!source) return;
-    if (!image || image.fetchPriority === "high") return;
-    candidates.push({
-      srcset: source.srcset,
-      sizes: source.sizes || image.sizes || "100vw",
-      priority: candidates.length === 2 ? "high" : "auto",
-    });
-  });
-
-  const seen = new Set();
-  const uniqueCandidates = candidates.filter((candidate) => {
-    const key = candidate.srcset;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-
-  const urgent = uniqueCandidates.filter((candidate) => candidate.priority === "high");
-  const background = uniqueCandidates.filter((candidate) => candidate.priority !== "high");
-  await Promise.all(urgent.map(warmImageCandidate));
-  for (let index = 0; index < background.length; index += 3) {
-    await Promise.all(background.slice(index, index + 3).map(warmImageCandidate));
+  if (!("IntersectionObserver" in window)) {
+    mobilePhotos.forEach((image) => promoteMobilePhoto(image));
+    return;
   }
+
+  mobilePhotoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      promoteMobilePhoto(entry.target, "high");
+      mobilePhotoObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: "1400px 0px" });
+
+  mobilePhotos.forEach((image) => mobilePhotoObserver.observe(image));
 }
 
+async function warmRemainingMobilePhotos() {
+  if (mobilePhotoWarmupStarted || !window.matchMedia("(max-width: 860px)").matches) return;
+  mobilePhotoWarmupStarted = true;
+
+  const inlineLongforms = formatPictures.map((picture) => picture.querySelector("img"));
+  const longformsReady = Promise.all(inlineLongforms.map(waitForImage));
+  const maximumPriorityWindow = new Promise((resolve) => window.setTimeout(resolve, 2500));
+  await Promise.race([longformsReady, maximumPriorityWindow]);
+
+  mobilePhotoObserver?.disconnect();
+  mobilePhotos.forEach((image) => {
+    if (image.fetchPriority !== "high") promoteMobilePhoto(image);
+  });
+}
+
+prepareMobilePhotoLoading();
 const leadImage = document.querySelector('img[fetchpriority="high"]');
-const beginMobileImageWarmup = () => window.setTimeout(warmMobileImageCache, 0);
-if (leadImage?.complete) beginMobileImageWarmup();
-else leadImage?.addEventListener("load", beginMobileImageWarmup, { once: true });
-window.addEventListener("load", beginMobileImageWarmup, { once: true });
+const beginMobilePhotoWarmup = () => window.setTimeout(warmRemainingMobilePhotos, 0);
+if (leadImage?.complete) beginMobilePhotoWarmup();
+else leadImage?.addEventListener("load", beginMobilePhotoWarmup, { once: true });
+window.addEventListener("load", beginMobilePhotoWarmup, { once: true });
 
 function setLongformView(view) {
   const next = longformViews[view] || longformViews.current;
