@@ -164,7 +164,6 @@ async function warmRemainingMobilePhotos() {
   const maximumPriorityWindow = new Promise((resolve) => window.setTimeout(resolve, 2500));
   await Promise.race([longformsReady, maximumPriorityWindow]);
 
-  mobilePhotoObserver?.disconnect();
   mobilePhotos.forEach((image) => {
     if (image.fetchPriority !== "high") promoteMobilePhoto(image);
   });
