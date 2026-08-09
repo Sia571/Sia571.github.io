@@ -118,27 +118,31 @@ const mobileImageWarmers = new Set();
 let mobileImageWarmupStarted = false;
 
 function warmImageCandidate({ srcset, sizes = "100vw", priority = "auto" }) {
-  if (!srcset) return;
-  const image = new Image();
-  const firstCandidate = srcset.split(",")[0]?.trim().split(/\s+/)[0];
-  image.decoding = "async";
-  image.fetchPriority = priority;
-  image.sizes = sizes;
-  image.srcset = srcset;
-  if (firstCandidate) image.src = firstCandidate;
-  const release = () => mobileImageWarmers.delete(image);
-  image.addEventListener("load", release, { once: true });
-  image.addEventListener("error", release, { once: true });
-  mobileImageWarmers.add(image);
+  if (!srcset) return Promise.resolve();
+  return new Promise((resolve) => {
+    const image = new Image();
+    const firstCandidate = srcset.split(",")[0]?.trim().split(/\s+/)[0];
+    image.decoding = "async";
+    image.fetchPriority = priority;
+    image.sizes = sizes;
+    image.srcset = srcset;
+    if (firstCandidate) image.src = firstCandidate;
+    const release = () => {
+      mobileImageWarmers.delete(image);
+      resolve();
+    };
+    image.addEventListener("load", release, { once: true });
+    image.addEventListener("error", release, { once: true });
+    mobileImageWarmers.add(image);
+  });
 }
 
-function warmMobileImageCache() {
+async function warmMobileImageCache() {
   if (mobileImageWarmupStarted || !window.matchMedia("(max-width: 860px)").matches) return;
   mobileImageWarmupStarted = true;
 
-  document.querySelectorAll('img[loading="lazy"]').forEach((image, index) => {
-    image.loading = "eager";
-    image.fetchPriority = index < 2 ? "high" : "auto";
+  document.querySelectorAll('img[loading="lazy"]').forEach((image) => {
+    image.fetchPriority = "auto";
   });
 
   const candidates = [
@@ -155,17 +159,24 @@ function warmMobileImageCache() {
     candidates.push({
       srcset: source.srcset,
       sizes: source.sizes || image.sizes || "100vw",
-      priority: candidates.length < 4 ? "high" : "auto",
+      priority: candidates.length === 2 ? "high" : "auto",
     });
   });
 
   const seen = new Set();
-  candidates.forEach((candidate) => {
+  const uniqueCandidates = candidates.filter((candidate) => {
     const key = candidate.srcset;
-    if (seen.has(key)) return;
+    if (seen.has(key)) return false;
     seen.add(key);
-    warmImageCandidate(candidate);
+    return true;
   });
+
+  const urgent = uniqueCandidates.filter((candidate) => candidate.priority === "high");
+  const background = uniqueCandidates.filter((candidate) => candidate.priority !== "high");
+  await Promise.all(urgent.map(warmImageCandidate));
+  for (let index = 0; index < background.length; index += 3) {
+    await Promise.all(background.slice(index, index + 3).map(warmImageCandidate));
+  }
 }
 
 const leadImage = document.querySelector('img[fetchpriority="high"]');
